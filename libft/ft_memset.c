@@ -6,28 +6,26 @@
 /*   By: jaojeda- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 20:53:57 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/04/07 22:19:10 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/04/08 15:02:52 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <string.h>
 
-void	*ft_memset(void	*str, int	x, size_t	n)
+void	*ft_memset(void	*str, int x, size_t n)
 {
 	size_t	i;
 
-	i =  0;
-	while (i <= n && ((char *)str)[i] != '\0')
-	/*while (i <= n && str[i] != '\0')*/
+	i = 0;
+	while (i < n)
 	{
-		((char *)str)[i] = x;
-		/*str[i] = x;*/
+		((char *)str)[i] = (unsigned char) x;
 		i++;
 	}
-	return str;
+	return (str);
 }
-
+/*
 int	main(void)
 {
 	char	mensaje[] = "hola Coddy";
@@ -37,4 +35,4 @@ int	main(void)
 	printf ("%s\n", (char *)ft_memset(mensaje, x, n));
 	printf ("%s", (char *)memset(mensaje, x, n));
 	return (0);
-}
+}*/
