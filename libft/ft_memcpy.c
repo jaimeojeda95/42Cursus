@@ -6,7 +6,7 @@
 /*   By: jaojeda- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 17:57:05 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/04/08 21:09:31 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/04/10 20:45:20 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,12 @@ void	*ft_memcpy(void	*dest, const void	*src, size_t	n)
 	size_t	j;
 	char	*ptr;
 
-	ptr = (char	*)dest;
+	ptr = (char *)dest;
 	i = 0;
 	j = 0;
-	/*while (((const char	*)src)[j] < n)*/
 	while (j < n)
 	{
-		ptr[i] = ((const char	*)src)[j];
+		ptr[i] = ((const char *)src)[j];
 		j++;
 		i++;
 	}
