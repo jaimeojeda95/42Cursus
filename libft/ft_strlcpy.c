@@ -6,13 +6,13 @@
 /*   By: jaojeda- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 11:56:02 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/04/13 12:30:40 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/04/13 12:40:49 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-unsigned int	ft_strlcpy(char *dest, char *src, size_t size)
+size_t	ft_strlcpy(char *dest, char *src, size_t size)
 {
 	size_t	i;
 	size_t	j;
@@ -41,6 +41,6 @@ int	main(void)
 	size = 13;
 	ft_strlcpy(dest, origen, sizeof(dest));
 	printf("mensaje copiado: %s\n", dest);
-	printf("largo de la cadena original: %d\n", ft_strlcpy(dest, origen, size));
+	printf("largo de la cadena original: %zu\n", ft_strlcpy(dest, origen, size));
 	return (0);
 }*/
