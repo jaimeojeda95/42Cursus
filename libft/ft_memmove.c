@@ -6,7 +6,7 @@
 /*   By: jaojeda- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 15:15:24 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/04/10 20:46:56 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/04/16 19:58:25 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memmove(void	*dest, const void	*src, size_t	n)
 	const char	*ptr2;
 
 	ptr1 = (char *)dest;
-	ptr2 = (const char *)src;
+	ptr2 = (const char *)src[i];
 	if (ptr1 == ptr2 || n == 0)
 		return (dest);
 	if (ptr1 > ptr2)
@@ -41,11 +41,11 @@ int	main(void)
 {
 	char	mensaje[] = "ABCDEF";
 	char	mensaje2[] = "ABCDEF";
-	size_t	n = 2;
+	size_t	n = 4;
 
-	ft_memmove(mensaje + 4, mensaje + 1, n);
+	ft_memmove(mensaje + 2, mensaje2, n);
 	printf("%s\n", mensaje);
-	memmove(mensaje2 + 4, mensaje2 + 1, n);
+	memmove(mensaje2 + 2, mensaje2, n);
 	printf("%s\n", mensaje2);
 	return (0);
 }*/
