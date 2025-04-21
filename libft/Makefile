@@ -38,9 +38,9 @@ bonus: $(OBJ) $(OBJ_BONUS)
 	ar rcs $(NAME) $(OBJ) $(OBJ_BONUS)
 
 #Lo que dice es: Para crear $(NAME), es decir, libft.a, necesito los
-#archivos .o que están en $(OBJ). Lo mismo para bonus + los primeros
+#archivos .o que están en $(OBJ). Lo mismo para bonus.
 
-#rcs: Son las banderas que se pasan al comando ar:
+#rcs: Son las banderas que se pasan al comando ar
 #r: Reemplaza o agrega archivos a la biblioteca estática.
 #c: Crea la biblioteca si no existe.
 #s: Crea un índice (o tabla de símbolos) dentro de la biblioteca estática,
@@ -50,11 +50,11 @@ bonus: $(OBJ) $(OBJ_BONUS)
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -O $@
 
-#Esto dice: $(CC) --> el compilador (por defecto es cc)
-# $(CFLAGS) --> banderas de compilación (-Wall -Wextra -Werror)
-# -c --> compila sin enlazar (genera .o, no ejecutables)
-# $< --> el archivo fuente .c (ej: ft_bzero.c)
-# -o $@ --> dice que la salida debe llamarse como el archivo objetivo (ej: ft_bzero.o)
+#Esto dice --> $(CC) : El compilador (por defecto es cc)
+# $(CFLAGS): banderas de compilación (-Wall -Wextra -Werror)
+# -c : Compila sin enlazar (genera .o, no ejecutables)
+# $< : El archivo fuente .c (ej: ft_bzero.c)
+# -o $@ : Dice que la salida debe llamarse como el archivo objetivo (ej: ft_bzero.o)
 
 #Aquí borra los archivos .o,
 clean:
