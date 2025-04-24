@@ -6,7 +6,7 @@
 /*   By: jaojeda- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 22:56:11 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/04/24 00:04:43 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/04/24 13:28:54 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ static int	ft_contar_numeros(int n)
 {
 	int	num_total;
 	int	contador;
-	int	num;
 
 	contador = 1;
 	num_total = 1;
@@ -29,7 +28,6 @@ static int	ft_contar_numeros(int n)
 	}
 	else if (n == 0)
 		return (1);
-	num = n;
 	while ((n / 10) > 0)
 	{
 		n = n / 10;
@@ -68,7 +66,7 @@ char	*ft_itoa(int n)
 /*
 int	main(void)
 {
-	int	num = 0;
+	int	num = -2586;
 
 	printf ("El int convertida a char es: %s\n", ft_itoa(num));
 	return (0);
