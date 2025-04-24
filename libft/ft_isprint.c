@@ -10,25 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+//Indica si un caracteer printiable
 
-int	ft_isprint(char *str)
+#include "libft.h"
+
+int	ft_isprint(int c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (!(str[i] >= 32 && str[i] <= 126))
-			return (0);
-		i++;
-	}
+	if (!(c >= 32 && c <= 126))
+		return (0);
 	return (1);
 }
 /*
 int	main(void)
 {
-	char	mensaje[] = "hola Coddy";
+	char	mensaje = 'h';
 
 	printf("%d", ft_isprint(mensaje));
 	return (0);

@@ -10,25 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+//Verifica si c es un valor dentro del conjunto de caracteres ASCII
 
-int	ft_isascii(char	*str)
+#include "libft.h"
+
+int	ft_isascii(int c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (!(str[i] >= 0 && str[i] <= 127))
-			return (0);
-		i++;
-	}
+	if (!(c >= 0 && c <= 127))
+		return (0);
 	return (1);
 }
 /*
 int	main(void)
 {
-	char	mensaje[] = "prueba";
+	char	mensaje = 'p';
 
 	printf("%d", ft_isascii(mensaje));
 	return (0);

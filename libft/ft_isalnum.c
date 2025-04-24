@@ -10,29 +10,34 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-int	ft_isalnum(char	*str)
+//Esta función comprueba si hay caracteres alfanumericos
+//Si da 1 es verdadero y 0 = falso
+
+int	ft_isalnum(int c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (
-			!(str[i] >= 65 && str[i] <= 90)
-			&& !(str[i] >= 97 && str[i] <= 122)
-			&& !(str[i] >= 48 && str[i] <= 57))
-			return (0);
-		i++;
-	}
+	if (!(c >= '0' && c <= '9')
+		&& !(c >= 'a' && c <= 'z')
+		&& !(c >= 'A' && c <= 'Z'))
+		return (0);
 	return (1);
 }
 /*
 int	main(void)
 {
-	char	mensaje[] = "yasomosestudiantes";
+	char	mensaje[] = "Hola Coddy";
+	int	i;
 
-	printf("%d", ft_isalnum(mensaje));
+	i = 0;
+	while (mensaje[i] != '\0')
+	{
+		printf("'%c' ¿es alfanumerico? %d\n", 
+		mensaje[i], ft_isalnum(mensaje[i]));
+		i++;
+	}
+	//char	caracter = 'y';
+
+	//printf("%d", ft_isalnum(caracter));
 	return (0);
 }*/

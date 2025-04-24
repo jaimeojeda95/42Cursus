@@ -10,25 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-int	ft_isdigit(char	*str)
+//Esta función comprueba si hay caracteres numericos
+//Si da 1 es verdadero y 0 = falso
+
+int	ft_isdigit(int c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (!(str[i] >= '0' && str[i] <= '9'))
-			return (0);
-		i++;
-	}
+	if (!(c >= '0' && c <= '9'))
+		return (0);
 	return (1);
 }
-
-/*int	main (void)
+/*
+int	main (void)
 {
-	char	mensaje[] = "2j566";
+	char	mensaje = '5';
 
 	printf("%d", ft_isdigit(mensaje));
 }*/

@@ -6,33 +6,26 @@
 /*   By: jaojeda- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 17:11:21 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/04/07 18:25:10 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/04/24 18:19:56 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-int	ft_isalpha(char	*str)
+//Esta función comprueba si hay caracteres alfabeticos
+
+int	ft_isalpha(int c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (!(str[i] >= 'a' && str[i] <= 'z')
-			&& !(str[i] >= 'A' && str[i] <= 'Z'))
-			return (0);
-		i++;
-	}
+	if (!(c >= 'a' && c <= 'z') && !(c >= 'A' && c <= 'Z'))
+		return (0);
 	return (1);
 }
-
-/*int	main(void)
+/*
+int	main(void)
 {
-	char	mensaje[] = "hol4a";
-	int	resultado;
-
-	resultado = ft_isalpha(mensaje);
-	printf("%d", resultado);
+	char	caracter = 'H';
+	
+	printf("Recordatorio: 1 es verdadero, 0 falso\n");
+	printf("%d", ft_isalpha(caracter));
 	return (0);
 }*/
