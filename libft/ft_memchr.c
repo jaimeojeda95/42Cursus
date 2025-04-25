@@ -10,17 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
+
+//Busca la primera aparición de un carácter
+//específico en un bloque de memoria.
 
 void	*ft_memchr(const void *str, int c, size_t n)
 {
 	size_t	i;
 
 	i = 0;
-	while (i <= n)
+	while (i < n)
 	{
-		if ((((unsigned char *)str)[i]) == c)
-			return ((char *)(str + i));
+		if ((((unsigned char *)str)[i]) == (unsigned char)c)
+			return ((void *)((unsigned char *)str + i));
 		i++;
 	}
 	return (NULL);

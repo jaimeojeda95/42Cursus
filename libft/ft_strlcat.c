@@ -10,42 +10,32 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
-size_t	ft_strlen(const char	*str)
-{
-	size_t	i;
+//Me permite concatenar src al final de dst, sin pasar
+//del tamaño size total, y termina en \0 si hay espacio.
+//Me tiene que devolver largos de cadenas
 
-	i = 0;
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
-
-/*línea 37: para que me muestre solo los caracteres que copia, no
-es necesario, solo con el return basta*/
-//linea 43: (i > size)
 size_t	ft_strlcat(char	*dest, const char	*src, size_t	size)
 {
 	size_t	i;
 	size_t	j;
 
-	i = ft_strlen(dest);
+	i = 0;
 	j = 0;
-	if (size <= i)
+	while (i < size && dest[i] != '\0')
+		i++;
+	if (size == i)
 	{
-		if (size > 0)
-			dest[size - 1] = '\0';
-		return (i + ft_strlen(src));
+		return (size + ft_strlen(src));
 	}
 	while (src[j] != '\0' && i + j < size - 1)
 	{
 		dest[i + j] = src[j];
 		j++;
 	}
-	dest[i + j] = '\0';
+	if ((i + j) < size)
+		dest[i + j] = '\0';
 	return (i + ft_strlen(src));
 }
 /*
@@ -55,7 +45,7 @@ int	main(void)
 	char	src[] = "Coddy";
 	size_t	n = 2;
 	size_t	resultado;
-
+	
 	resultado = ft_strlcat(dest, src, n);
 	printf("mensaje copiado (solo lo uso como guia): %s\n", dest);
 	printf("largo de la cadena esperada: %zu\n", resultado);

@@ -1,39 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaojeda- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/07 20:53:57 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/04/08 15:02:52 by jaojeda-         ###   ########.fr       */
+/*   Created: 2025/04/24 16:40:12 by jaojeda-          #+#    #+#             */
+/*   Updated: 2025/04/24 18:09:03 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <string.h>
+#include <unistd.h>
 #include "libft.h"
 
-void	*ft_memset(void	*str, int x, size_t n)
-{
-	size_t	i;
+//Esta función me permite mostrar todos los valores posibles de un int
 
-	i = 0;
-	while (i < n)
+void	ft_putnbr_fd(int n, int fd)
+{
+	if (n == -2147483648)
 	{
-		((char *)str)[i] = (unsigned char) x;
-		i++;
+		write (fd, "-2147483648", 11);
+		return ;
 	}
-	return (str);
+	if (n < 0)
+	{
+		write (fd, "-", 1);
+		n = (-1 * n);
+	}
+	if (n >= 10)
+		ft_putnbr_fd(n / 10, fd);
+	ft_putchar_fd((n % 10) + '0', fd);
 }
 /*
 int	main(void)
 {
-	char	mensaje[] = "hola Coddy";
-	int	n = 18;
-	char	x = '0';
-
-	printf ("%s\n", (char *)ft_memset(mensaje, x, n));
-	printf ("%s", (char *)memset(mensaje, x, n));
+	ft_putnbr_fd(3648, 1);
 	return (0);
 }*/

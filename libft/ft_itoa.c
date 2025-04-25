@@ -12,6 +12,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "libft.h"
 
 static int	ft_contar_numeros(int n)
 {

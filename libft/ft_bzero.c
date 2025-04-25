@@ -6,12 +6,11 @@
 /*   By: jaojeda- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 15:05:38 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/04/10 20:46:01 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/04/24 18:09:50 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <strings.h>
+#include "libft.h"
 
 void	ft_bzero(void	*str, size_t	n)
 {

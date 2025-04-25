@@ -10,20 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
-size_t	ft_strlen(const char	*str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
+//Reserva con malloc y devuelve una nueva string,
+//formada por la concatenación de ’s1’ y ’s2’
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -31,7 +21,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	j;
 	char	*str3;
 
-	str3 = malloc(ft_strlen(s1) + ft_strlen(s2));
+	str3 = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (str3 == NULL)
 		return (NULL);
 	i = 0;
@@ -49,11 +39,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	str3[i + j] = '\0';
 	return (str3);
 }
-
+/*
 int	main(void)
 {
 	const char	str1[] = "hola";
 	const char	str2[] = "Coddy";
 
 	printf ("La nueva cadena es: %s\n", ft_strjoin(str1, str2));
-}
+}*/

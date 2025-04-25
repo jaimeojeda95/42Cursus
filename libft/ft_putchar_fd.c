@@ -6,15 +6,16 @@
 /*   By: jaojeda- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 16:01:46 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/04/24 16:05:19 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/04/24 16:18:05 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include "libft.h"
 
 //fd si es 1, es para mostrar en pantalla
 
-void ft_putchar_fd(char c, int fd)
+void	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
 }

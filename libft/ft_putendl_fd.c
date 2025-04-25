@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaojeda- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/07 20:53:57 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/04/08 15:02:52 by jaojeda-         ###   ########.fr       */
+/*   Created: 2025/04/24 16:18:54 by jaojeda-          #+#    #+#             */
+/*   Updated: 2025/04/24 16:28:10 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include <unistd.h>
 #include "libft.h"
 
-void	*ft_memset(void	*str, int x, size_t n)
+//fd si vale 1 me imprimirá en pantalla
+
+void	ft_putendl_fd(char *s, int fd)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	while (i < n)
+	while (s[i] != '\0')
 	{
-		((char *)str)[i] = (unsigned char) x;
+		write(fd, &s[i], 1);
 		i++;
 	}
-	return (str);
+	write(fd, "\n", 1);
 }
-/*
-int	main(void)
-{
-	char	mensaje[] = "hola Coddy";
-	int	n = 18;
-	char	x = '0';
-
-	printf ("%s\n", (char *)ft_memset(mensaje, x, n));
-	printf ("%s", (char *)memset(mensaje, x, n));
-	return (0);
-}*/

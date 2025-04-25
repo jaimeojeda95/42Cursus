@@ -10,8 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
+
+//Esta funcion me devuelve un puntero a la primera aparición
+//del carácter c en la cadena str
 
 size_t	ft_strlen(const char	*str)
 {
@@ -25,7 +27,7 @@ size_t	ft_strlen(const char	*str)
 	return (i);
 }
 
-/*linea 40: recordar que "str + n" es un puntero al
+/*linea 42: recordar que "str + n" es un puntero al
 primer caracter de la memoria + el indice, es decir,
 mueve ese puntero n posiciones adelante. Esa n me la ft_strlen(str)*/
 

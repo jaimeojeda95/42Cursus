@@ -12,6 +12,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include "libft.h"
 
 void	*ft_memmove(void	*dest, const void	*src, size_t	n)
 {
@@ -19,7 +20,7 @@ void	*ft_memmove(void	*dest, const void	*src, size_t	n)
 	const char	*ptr2;
 
 	ptr1 = (char *)dest;
-	ptr2 = (const char *)src[i];
+	ptr2 = (const char *)src;
 	if (ptr1 == ptr2 || n == 0)
 		return (dest);
 	if (ptr1 > ptr2)

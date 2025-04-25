@@ -12,6 +12,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "libft.h"
 
 /*Linea 36: es n + 1 para que me el espacio para el '\0'*/
 size_t	ft_strlen(const char	*str)

@@ -10,25 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
-size_t	ft_strlen(const char *str)
-{
-	size_t	i;
+//Esta funcion me devuelve un puntero a la primera aparición
+//del carácter c en la cadena str
+/*linea 26: ultima vista = -1 porque 0 puede
+ser la primera posición de la cadena*/
 
-	i = 0;
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
-
-/*linea 37: ultima vista = -1 porque 0 puede ser la primera
-posición de la cadena*/
-
-char	*ft_strchr(const char *str, int c)
+char	*ft_strrchr(const char *str, int c)
 {
 	int		ultima_vista;
 	size_t	i;
@@ -54,7 +43,7 @@ int	main(void)
 	int	to_find = 'd';
     
 	printf("el caracter a encontrar es: %c\n", to_find);
-	if (ft_strchr(mensaje, to_find) != NULL)
+	if (ft_strrchr(mensaje, to_find) != NULL)
 		printf("el caracter se encontro en la posicion:
 		%ld\n", ft_strchr(mensaje, to_find) - mensaje);
 	else
