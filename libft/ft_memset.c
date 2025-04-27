@@ -10,9 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
 #include "libft.h"
+
+//Sirve para establecer un bloque de
+//memoria con un valor específico
 
 void	*ft_memset(void	*str, int x, size_t n)
 {
