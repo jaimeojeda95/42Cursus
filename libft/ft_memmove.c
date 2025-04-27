@@ -10,9 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
 #include "libft.h"
+
+//Para copiar un bloque de memoria de un lugar a otro
+//pero evitando el solapamiento
 
 void	*ft_memmove(void	*dest, const void	*src, size_t	n)
 {
