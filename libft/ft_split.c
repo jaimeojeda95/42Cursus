@@ -12,30 +12,84 @@
 
 #include "libft.h"
 
-char	**ft_split(char const *s, char c)
+size_t ft_count_word(char const *s, char c)
 {
-	int	i;
-	int	cont_c;
-	char**	strs;
+	int i;
+	size_t total_words;
 
 	i = 0;
-	cont_c = 1;
-	//Cuento y creo mis substrings (y sus espacios de memoria)
+	total_words = 0;
+	// Cuento y creo mis substrings (y sus espacios de memoria)
 	while ((s[i]) != '\0')
 	{
-		if (s[i] == c)
-			cont_c++;
+		if (s[i] != c)
+		{
+			if (i == 0 || s[i - 1] == c)
+				total_words++;
+		}
 		i++;
 	}
-	strs = malloc((cont_c + 1) * sizeof(char*));
-	strs[cont_c] = NULL;
+	return (total_words);
 }
 
-int	main(void)
+char **ft_split(char const *s, char c)
 {
-	char	*mensaje = "Hola, Coddy, como, estas?";
-	char	c = ',';
+	char **result_final;
+	size_t count;
+	int i_matrix;
+	int i;
+	int j;
 
-	ft_split(mensaje, c);
-	return (0);
+	i = 0;
+	i_matrix = 0;
+	j = 0;
+	count = ft_count_word(s, c);
+	result_final = malloc((count + 1) * sizeof(char *));
+	if (result_final == NULL)
+		return (NULL);
+	while (s[i] != '\0')
+	{
+		while (s[i] == c && s[i] != '\0')
+			i++;
+		if (s[i] != '\0')
+		{
+			j = i;
+			while (s[j] != c && s[j] != '\0')
+				j++;
+			result_final[i_matrix] = ft_substr(s, i, (j - i));
+			if (result_final[i_matrix] == NULL)
+			{
+				while (i_matrix >= 0)
+				{
+					free(result_final[i_matrix]);
+					i_matrix--;
+				}
+				free(result_final);
+				return (NULL);
+			}
+		}
+		if (s[j] == c)
+		{
+			j++;
+			i_matrix++;
+		}
+		i = j;
+	}
+	result_final[count] = NULL;
+	return (result_final);
 }
+/*
+int main(void)
+{
+	const char *s = "     Hola Coddy      como estas?    ";
+	int i;
+	char **str;
+	i = 0;
+	str = ft_split(s, ' ');
+	while (str[i])
+	{
+		printf("word: %s\n", str[i]);
+		i++;
+	}
+	return (0);
+}*/
