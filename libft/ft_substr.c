@@ -10,19 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
 #include "libft.h"
+
+/*Esta función toma una cadena de caracteres (s), un índice de inicio (start), y
+una longitud (len), y devuelve una nueva cadena que comienza en el índice start
+de la cadena original y tiene una longitud de len caracteres (o hasta el final
+de la cadena si no hay suficientes caracteres)*/
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*str;
 	size_t	i;
 
-	i = 0;
+	if (start > ft_strlen(s))
+		return ("\0");
 	str = malloc(len + 1);
 	if (str == NULL)
 		return (NULL);
+	i = 0;
 	while (i < len && s[start] != '\0')
 	{
 		str[i] = s[start];
@@ -38,7 +43,7 @@ int	main(void)
 	char const	s[] = "hola Coddy";
 	unsigned int	start = 4;
 	size_t	len    = 4;
-    
+
 	printf ("resultado con start: %d y len: %zu --> %s",
 start, len, ft_substr(s, start, len));
 	return (0);

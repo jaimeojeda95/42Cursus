@@ -12,14 +12,13 @@
 
 #include "libft.h"
 
-size_t ft_count_word(char const *s, char c)
+size_t	ft_count_word(char const *s, char c)
 {
-	int i;
-	size_t total_words;
+	int		i;
+	size_t	total_words;
 
 	i = 0;
 	total_words = 0;
-	// Cuento y creo mis substrings (y sus espacios de memoria)
 	while ((s[i]) != '\0')
 	{
 		if (s[i] != c)
@@ -32,13 +31,13 @@ size_t ft_count_word(char const *s, char c)
 	return (total_words);
 }
 
-char **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-	char **result_final;
-	size_t count;
-	int i_matrix;
-	int i;
-	int j;
+	char	**result_final;
+	size_t	count;
+	int		i_matrix;
+	int		i;
+	int		j;
 
 	i = 0;
 	i_matrix = 0;

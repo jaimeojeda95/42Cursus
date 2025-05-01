@@ -17,13 +17,10 @@
 static int	ft_contar_numeros(int n)
 {
 	int	num_total;
-	int	contador;
 
-	contador = 1;
 	num_total = 1;
 	if (n < 0)
 	{
-		contador = -1;
 		n = -n;
 		num_total++;
 	}

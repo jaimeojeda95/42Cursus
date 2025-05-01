@@ -14,10 +14,11 @@
 # define LIBFT_H
 
 # include <stdio.h>
+# include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
 # include <strings.h>
-# include <bsd/string.h>
+// # include <bsd/string.h>
 
 int		ft_atoi(const char *nptr);
 int		ft_isalnum(int c);

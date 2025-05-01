@@ -16,28 +16,31 @@
 desde el principio y desde el final de ’s1’, hasta
 encontrar un caracter no perteneciente a ’set’. La
 string resultante se devuelve con una reserva de
-malloc(3)*/
+malloc*/
 
 static int	ft_contar_adelante(const char *s1, const char *set)
 {
-	int	contador1;
-	int	num_total;
 	int	i;
 	int	j;
+	int	contador1;
+	int	found;
 
 	i = 0;
-	j = 0;
 	contador1 = 0;
-	num_total = ft_strlen(s1);
-	while (s1[i] != '\0' && !(contador1 != i))
+	while (s1[i] != '\0')
 	{
 		j = 0;
+		found = 0;
 		while (set[j] != '\0')
 		{
 			if (s1[i] == set[j])
-				contador1++;
+				found = 1;
 			j++;
 		}
+		if (found == 1)
+			contador1++;
+		else
+			return (contador1);
 		i++;
 	}
 	return (contador1);
@@ -45,21 +48,20 @@ static int	ft_contar_adelante(const char *s1, const char *set)
 
 static int	ft_contar_hacia_atras(const char *s1, char const *set)
 {
-	int	num_total1;
+	int	i_num_total;
 	int	found;
 	int	contador2;
 	int	j;
 
 	contador2 = 0;
-	num_total1 = ft_strlen(s1);
-	found = 1;
-	while ((num_total1 - 1) >= 0 && found == 1)
+	i_num_total = ft_strlen(s1);
+	while ((i_num_total - 1) >= 0)
 	{
 		j = 0;
 		found = 0;
 		while (set[j] != '\0')
 		{
-			if (s1[num_total1 - 1] == set[j])
+			if (s1[i_num_total - 1] == set[j])
 			{
 				contador2++;
 				found = 1;
@@ -67,9 +69,32 @@ static int	ft_contar_hacia_atras(const char *s1, char const *set)
 			j++;
 		}
 		if (found == 1)
-			num_total1--;
+			i_num_total--;
+		else
+			return (contador2);
 	}
 	return (contador2);
+}
+
+static char	*ft_set_igual_s1(char const *s1, char const *set)
+{
+	int		contador1;
+	int		contador2;
+	int		num_total;
+	char	*str_result;
+
+	num_total = ft_strlen(s1);
+	contador1 = ft_contar_adelante(s1, set);
+	contador2 = ft_contar_hacia_atras(s1, set);
+	str_result = malloc(1);
+	if (contador1 + contador2 >= num_total)
+	{
+		if (str_result == NULL)
+			return (NULL);
+		str_result[0] = '\0';
+		return (str_result);
+	}
+	return (NULL);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
@@ -83,7 +108,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	num_total = ft_strlen(s1);
 	contador1 = ft_contar_adelante(s1, set);
 	contador2 = ft_contar_hacia_atras(s1, set);
-	str_result = malloc(num_total - contador1 - contador2 + 1);
+	if (contador1 + contador2 >= num_total)
+		str_result = ft_set_igual_s1(s1, set);
+	else
+		str_result = malloc(num_total - contador1 - contador2 + 1);
 	if (str_result == NULL)
 		return (NULL);
 	indice_final = 0;
@@ -99,8 +127,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 /*
 int	main(void)
 {
-	const char	mensaje[] = "yxzCoddyzxy";
-	const char	set[] = "xyz";
+	const char	mensaje[] = "    ";
+	const char	set[] = " ";
 
 	printf("str resultante: %s\n", ft_strtrim(mensaje, set));
 	return (0);
