@@ -17,13 +17,27 @@ una longitud (len), y devuelve una nueva cadena que comienza en el índice start
 de la cadena original y tiene una longitud de len caracteres (o hasta el final
 de la cadena si no hay suficientes caracteres)*/
 
+// Linea 38: Debo usar ft_strdup("") en lugar de return ("\0") porque se crea
+// una cadena que en memoria estática no se puede liberar adecuadamente. Al usar
+// ft_strdup(""), se crea una cadena vacía en memoria dinámica, la cual sí
+// puedes liberar correctamente más tarde cuando ya no la necesite
+
+//Linea 39: Asegura que la longitud de la subcadena no sea mayor que el resto
+//de la cadena desde "start y no lea más allá del tamaño que se rquiere"
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*str;
 	size_t	i;
+	size_t	str_len;
 
-	if (start > ft_strlen(s))
-		return ("\0");
+	if (s == NULL)
+		return (NULL);
+	str_len = ft_strlen(s);
+	if (start > str_len)
+		return (ft_strdup(""));
+	if (len > str_len - start)
+		len = str_len - start;
 	str = malloc(len + 1);
 	if (str == NULL)
 		return (NULL);

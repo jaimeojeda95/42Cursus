@@ -28,7 +28,7 @@ char	*ft_strrchr(const char *str, int c)
 		return ((char *)(str + ft_strlen(str)));
 	while (str[i] != '\0')
 	{
-		if (str[i] == c)
+		if ((unsigned char)str[i] == (unsigned char)c)
 			ultima_vista = i;
 		i++;
 	}
@@ -41,7 +41,7 @@ int	main(void)
 {
 	const char	mensaje[] = "hola, Coddy. 4F";
 	int	to_find = 'd';
-    
+
 	printf("el caracter a encontrar es: %c\n", to_find);
 	if (ft_strrchr(mensaje, to_find) != NULL)
 		printf("el caracter se encontro en la posicion:

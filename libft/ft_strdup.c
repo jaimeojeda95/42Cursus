@@ -10,11 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
 #include "libft.h"
 
-/*Linea 36: es n + 1 para que me el espacio para el '\0'*/
+//Copia una cadena (const char *s) en un nuevo bloque de
+//memoria reservado dinámicamente con malloc, y devuelve
+//un puntero a esa copia
+
 size_t	ft_strlen(const char	*str)
 {
 	size_t	i;

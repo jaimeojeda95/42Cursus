@@ -10,9 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-// #include <bsd/string.h>
 #include "libft.h"
+
+//Busca una subcadena (little) dentro de una cadena más grande (big) pero
+//con un límite en la cantidad de caracteres a revisar (len)
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
@@ -22,10 +23,10 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	if (little[0] == '\0')
 		return ((char *)(big));
 	i = 0;
-	while (i < len)
+	while (i < len && big[i] != '\0')
 	{
 		j = 0;
-		while (big[i + j] == little[j] && (i + j) < len && little[j] != '\0')
+		while ((i + j) < len && big[i + j] == little[j] && little[j] != '\0')
 		{
 			j++;
 		}

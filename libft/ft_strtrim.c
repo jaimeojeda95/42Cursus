@@ -62,16 +62,14 @@ static int	ft_contar_hacia_atras(const char *s1, char const *set)
 		while (set[j] != '\0')
 		{
 			if (s1[i_num_total - 1] == set[j])
-			{
-				contador2++;
 				found = 1;
-			}
 			j++;
 		}
 		if (found == 1)
-			i_num_total--;
+			contador2++;
 		else
 			return (contador2);
+		i_num_total--;
 	}
 	return (contador2);
 }
