@@ -82,19 +82,20 @@ char	**ft_split(char const *s, char c)
 	int		i_matrix;
 	int		i;
 	int		j;
+	int		count;
 
 	i = 0;
 	i_matrix = 0;
 	j = 0;
-	result_final = malloc(((ft_count_word(s, c)) + 1) * sizeof(char *));
+	count = ft_count_word(s, c);
+	result_final = malloc((count + 1) * sizeof(char *));
 	if (result_final == NULL)
 		return (NULL);
 	if (!(ft_execute_split(result_final, i_matrix, s, c)))
 		return (NULL);
-	result_final[ft_count_word(s, c)] = NULL;
+	result_final[count] = NULL;
 	return (result_final);
 }
-
 /*
 int main(void)
 {
