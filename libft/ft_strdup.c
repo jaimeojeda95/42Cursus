@@ -16,18 +16,6 @@
 //memoria reservado dinámicamente con malloc, y devuelve
 //un puntero a esa copia
 
-size_t	ft_strlen(const char	*str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
-
 char	*ft_strdup(const char *s)
 {
 	char	*ptr;

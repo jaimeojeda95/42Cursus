@@ -31,21 +31,26 @@ size_t	ft_count_word(char const *s, char c)
 	return (total_words);
 }
 
-char	**ft_split(char const *s, char c)
+static void	ft_free(char **result_final, int i_matrix)
 {
-	char	**result_final;
-	size_t	count;
-	int		i_matrix;
-	int		i;
-	int		j;
+	if (result_final[i_matrix] == NULL)
+	{
+		while (i_matrix >= 0)
+		{
+			free(result_final[i_matrix]);
+			i_matrix--;
+		}
+		free(result_final);
+	}
+}
+
+static int	ft_execute_split(
+	char **result_final, int i_matrix, char const *s, char c)
+{
+	int	i;
+	int	j;
 
 	i = 0;
-	i_matrix = 0;
-	j = 0;
-	count = ft_count_word(s, c);
-	result_final = malloc((count + 1) * sizeof(char *));
-	if (result_final == NULL)
-		return (NULL);
 	while (s[i] != '\0')
 	{
 		while (s[i] == c && s[i] != '\0')
@@ -58,25 +63,38 @@ char	**ft_split(char const *s, char c)
 			result_final[i_matrix] = ft_substr(s, i, (j - i));
 			if (result_final[i_matrix] == NULL)
 			{
-				while (i_matrix >= 0)
-				{
-					free(result_final[i_matrix]);
-					i_matrix--;
-				}
-				free(result_final);
-				return (NULL);
+				ft_free(result_final, i_matrix);
+				return (0);
 			}
-		}
-		if (s[j] == c)
-		{
-			j++;
 			i_matrix++;
 		}
 		i = j;
+		j++;
 	}
-	result_final[count] = NULL;
+	return (1);
+}
+// Linea 92: El ! invierte el valor, así que si devuelve 0 en
+// el return entra en el if. Return (1) significa que todo salió bien
+
+char	**ft_split(char const *s, char c)
+{
+	char	**result_final;
+	int		i_matrix;
+	int		i;
+	int		j;
+
+	i = 0;
+	i_matrix = 0;
+	j = 0;
+	result_final = malloc(((ft_count_word(s, c)) + 1) * sizeof(char *));
+	if (result_final == NULL)
+		return (NULL);
+	if (!(ft_execute_split(result_final, i_matrix, s, c)))
+		return (NULL);
+	result_final[ft_count_word(s, c)] = NULL;
 	return (result_final);
 }
+
 /*
 int main(void)
 {
