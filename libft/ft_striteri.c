@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "libft.h"
 #include "libft.h"
 
 //Esta funcion me permite cambiar un str a artir de una funcion

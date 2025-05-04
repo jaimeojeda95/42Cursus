@@ -10,25 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
 #include "libft.h"
 
-static int	ft_contar_numeros(int n)
+static int	ft_contar_numeros(long num)
 {
 	int	num_total;
 
-	num_total = 1;
-	if (n < 0)
+	num_total = 0;
+	if (num < 0)
 	{
-		n = -n;
+		num = -num;
 		num_total++;
 	}
-	else if (n == 0)
+	else if (num == 0)
 		return (1);
-	while ((n / 10) > 0)
+	while (num > 0)
 	{
-		n = n / 10;
+		num = num / 10;
 		num_total++;
 	}
 	return (num_total);
@@ -37,28 +35,28 @@ static int	ft_contar_numeros(int n)
 char	*ft_itoa(int n)
 {
 	int		num_total;
-	int		num_aux;
 	char	*str;
+	long	num;
 
-	num_total = ft_contar_numeros(n);
-	num_aux = num_total;
+	num = (long)n;
+	num_total = ft_contar_numeros(num);
 	str = malloc(num_total + 1);
 	if (str == NULL)
 		return (NULL);
-	if (n < 0)
+	str[num_total] = '\0';
+	if (num < 0)
 	{
-		n = -n;
+		num = -num;
 		str[0] = '-';
 	}
-	else if (n == 0)
-		str[num_total - 1] = ((n % 10) + '0');
-	while (n > 0)
+	else if (num == 0)
+		str[num_total - 1] = ((num % 10) + '0');
+	while (num > 0)
 	{
-		str[num_total - 1] = ((n % 10) + '0');
-		n = (n / 10);
+		str[num_total - 1] = ((num % 10) + '0');
+		num = (num / 10);
 		num_total--;
 	}
-	str[num_aux] = '\0';
 	return (str);
 }
 /*
