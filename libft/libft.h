@@ -13,11 +13,18 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
+typedef struct s_list
+{
+	void *content;
+	struct s_list *next;
+}
+t_list;
+
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
-# include <strings.h>
+// # include <strings.h>
 // # include <bsd/string.h>
 
 int		ft_atoi(const char *nptr);
@@ -53,6 +60,6 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putstr_fd(char *s, int fd);
 size_t	ft_strlen(const char	*str);
 size_t	ft_strlcat(char	*dest, const char	*src, size_t	size);
-size_t	ft_strlcpy(char *dest, char *src, size_t size);
+size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 
 #endif

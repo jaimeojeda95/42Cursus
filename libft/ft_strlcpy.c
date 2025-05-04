@@ -15,7 +15,7 @@
 //Me permite copiar de src a dst como mucho size - 1
 //caracteres y siempre termina en \0 si size > 0
 
-size_t	ft_strlcpy(char *dest, char *src, size_t size)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
 	size_t	i;
 	size_t	j;
@@ -41,7 +41,7 @@ int	main(void)
 {
 	size_t	size;
 	char	dest[5];
-	char	origen[] = "hola papelon con limon";
+	const char	origen[] = "hola papelon con limon";
 
 	size = 13;
 	ft_strlcpy(dest, origen, sizeof(dest));
