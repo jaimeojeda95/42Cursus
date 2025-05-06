@@ -36,17 +36,17 @@ char	*ft_strrchr(const char *str, int c)
 		return (NULL);
 	return ((char *)(str + ultima_vista));
 }
-/*
-int	main(void)
-{
-	const char	mensaje[] = "hola, Coddy";
-	int	to_find = ' ';
 
-	printf("el caracter a encontrar es: %c\n", to_find);
-	if (ft_strrchr(mensaje, to_find) != NULL)
-		printf("el caracter se encontro en la posicion:
-		%ld\n", ft_strrchr(mensaje, to_find) - mensaje);
-	else
-		printf("el valor es NULL");
-return (0);
-}*/
+// int	main(void)
+// {
+// 	const char	mensaje[] = "hola, Coddy";
+// 	int	to_find = ' ';
+
+// 	printf("el caracter a encontrar es: %c\n", to_find);
+// 	if (ft_strrchr(mensaje, to_find) != NULL)
+// 		printf("el caracter se encontro en la posicion:
+//	%ld\n", ft_strrchr(mensaje, to_find) - mensaje);
+// 	else
+// 		printf("el valor es NULL");
+// return (0);
+// }

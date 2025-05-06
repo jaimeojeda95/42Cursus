@@ -13,19 +13,16 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
-typedef struct s_list
-{
-	void *content;
-	struct s_list *next;
-}
-t_list;
-
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
-// # include <strings.h>
-// # include <bsd/string.h>
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 int		ft_atoi(const char *nptr);
 int		ft_isalnum(int c);

@@ -38,16 +38,16 @@ void	*ft_memmove(void	*dest, const void	*src, size_t	n)
 	}
 	return (dest);
 }
-/*
-int	main(void)
-{
-	char	mensaje[] = "ABCDEF";
-	char	mensaje2[] = "ABCDEF";
-	size_t	n = 4;
 
-	ft_memmove(mensaje + 2, mensaje2, n);
-	printf("%s\n", mensaje);
-	memmove(mensaje2 + 2, mensaje2, n);
-	printf("%s\n", mensaje2);
-	return (0);
-}*/
+// int	main(void)
+// {
+// 	char	mensaje[] = "ABCDEFvv";
+// 	char	mensaje2[] = "ABCDEFvvv";
+// 	size_t	n = 10;
+
+// 	ft_memmove(mensaje, mensaje2, n);
+// 	printf("%s\n", mensaje);
+// 	memmove(mensaje, mensaje2, n);
+// 	printf("%s\n", mensaje2);
+// 	return (0);
+// }
