@@ -22,27 +22,27 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	ft_bzero(ptr, (nmemb * size));
 	return (ptr);
 }
-/*
-int	main(void)
+
+/*int	main(void)
 {
 	size_t num;
 	size_t size;
 
 	num = 1;
-	size = 11;
+	size = sizeof(char*);
 	ft_calloc(num, size);
 
 	size_t	i;
-	int	*mensaje;
+	char	*mensaje;
 	i = 0;
 	mensaje = ft_calloc(num, size);
 	while (i < num * size)
 	{
 		printf("array[%zu] = %d\n", i, mensaje[i]);
 		i++;
-	}*/
+	}
 
-	/*char	*mensaje;
+	char	*mensaje;
 	char	*texto;
 	size_t	i;
 
@@ -60,5 +60,5 @@ int	main(void)
 		printf("Texto copiado completamente.\n");
 	else
 		printf("Texto truncado: solo se copio parcialmente.\n");
-	return (0);
+	return (0); 
 }*/

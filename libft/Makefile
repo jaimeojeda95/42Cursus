@@ -21,7 +21,7 @@ ft_lstiter.c ft_lstmap.c
 #Aquí voy a convertir cada archivo .c en su equivalente .o
 #por ejemplo, ft_bzero.c será ft_bzero.o.
 OBJ = $(SRC:.c=.o)
-OBJ_BONUS = $(SRC_BONUS:.c=.o)
+#OBJ_BONUS = $(SRC_BONUS:.c=.o)
 
 #Aquí defino el compilador (para C es cc)
 #CC = cc
@@ -38,7 +38,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@ar rcs $(NAME) $(OBJ)
 
-bonus: $(OBJ) $(OBJ_BONUS)
+#bonus: $(OBJ) $(OBJ_BONUS)
 	@ar rcs $(NAME) $(OBJ) $(OBJ_BONUS)
 
 #Lo que dice es: Para crear $(NAME), es decir, libft.a, necesito los
@@ -61,8 +61,9 @@ bonus: $(OBJ) $(OBJ_BONUS)
 # -o $@ : Dice que la salida debe llamarse como el archivo objetivo (ej: ft_bzero.o)
 
 #Aquí borra los archivos .o,
+# $(OBJ_BONUS)
 clean:
-	rm -f $(OBJ) $(OBJ_BONUS)
+	rm -f $(OBJ) 
 
 #Esta regla es para borrar los archivos .o y .a (libft)
 fclean: clean
@@ -70,3 +71,5 @@ fclean: clean
 
 #Esta regla es para limpiar todo y volver a compilar desde cero
 re: fclean all
+
+.PHONY: all clean fclean

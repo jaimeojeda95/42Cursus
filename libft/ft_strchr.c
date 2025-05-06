@@ -18,29 +18,33 @@
 char	*ft_strchr(const char *str, int c)
 {
 	size_t	i;
+	char	*str_temp;
+	char	c_temp;
 
+	c_temp = (char)c;
+	str_temp = (char *)str;
 	i = 0;
-	if (c == '\0')
-		return ((char *)(str + ft_strlen(str)));
-	while (str[i] != '\0')
+	if (c_temp == '\0')
+		return ((str_temp + ft_strlen(str_temp)));
+	while (str_temp[i] != '\0')
 	{
-		if ((unsigned char)str[i] == (unsigned char)c)
-			return ((char *)(str + i));
+		if (str_temp[i] == c_temp)
+			return ((str_temp + i));
 		i++;
 	}
 	return (NULL);
 }
-/*
-int	main(void)
+
+/* int	main(void)
 {
 	const char	mensaje[] = "hola, Coddy. 4F";
 	int	to_find = 'C';
 
 	printf("el caracter a encontrar es: %c\n", to_find);
 	if (ft_strchr(mensaje, to_find) != NULL)
-		printf("el caracter se encontro en la posicion: %ld\n",
-ft_strchr(mensaje, to_find) - mensaje);
+		printf("el caracter se encontro en la posicion:
+		%ld\n", ft_strchr(mensaje, to_find) - mensaje);
 	else
 		printf("el valor es NULL");
 	return (0);
-}*/
+} */

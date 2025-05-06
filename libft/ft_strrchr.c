@@ -21,20 +21,24 @@ char	*ft_strrchr(const char *str, int c)
 {
 	int		ultima_vista;
 	size_t	i;
+	char	c_temp;
+	char	*str_temp;
 
+	str_temp = (char *)str;
+	c_temp = (char)c;
 	i = 0;
 	ultima_vista = -1;
-	if (c == '\0')
-		return ((char *)(str + ft_strlen(str)));
-	while (str[i] != '\0')
+	if (c_temp == '\0')
+		return ((str_temp + ft_strlen(str_temp)));
+	while (str_temp[i] != '\0')
 	{
-		if ((unsigned char)str[i] == (unsigned char)c)
+		if (str_temp[i] == c_temp)
 			ultima_vista = i;
 		i++;
 	}
 	if (ultima_vista == -1)
 		return (NULL);
-	return ((char *)(str + ultima_vista));
+	return ((str_temp + ultima_vista));
 }
 
 // int	main(void)

@@ -41,8 +41,8 @@ void	*ft_memmove(void	*dest, const void	*src, size_t	n)
 
 // int	main(void)
 // {
-// 	char	mensaje[] = "ABCDEFvv";
-// 	char	mensaje2[] = "ABCDEFvvv";
+// 	char	mensaje[] = "ABCDEF";
+// 	char	mensaje2[] = "ABCDEF";
 // 	size_t	n = 10;
 
 // 	ft_memmove(mensaje, mensaje2, n);
