@@ -8,7 +8,7 @@ int	ft_putchar(char str)
 	write(1, &str, 1);
 	return (1);
 }
-
+//para %d, &i
 int	ft_putnbr(int str)
 {
 	int	i;
@@ -30,10 +30,14 @@ int	ft_putnbr(int str)
 	return (i);
 }
 
+//para %u
+
+
 int	main(void)
 {
-	int	str = 'c';
-	printf(" printf original: %c\n", printf("c"));
-	printf(" mi versión ft_printf: %c\n", ft_putchar(str));
+	unsigned int	str = -2025;
+	printf("%u\n", printf("%u\n", str));
+	// printf(" printf original: %u\n", printf("-5426"));
+	printf(" mi versión ft_printf: %u\n", ft_putnbr(str));
 	return (0);
 }

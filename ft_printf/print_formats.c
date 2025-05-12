@@ -37,7 +37,7 @@ int	ft_putstr(char *str)
 	return (i);
 }
 
-//imprime un numero decimal
+////para %d, &i
 int	ft_putnbr(int str)
 {
 	int	i;
@@ -60,3 +60,6 @@ int	ft_putnbr(int str)
 	i += ft_putchar((str % 10) + '0');
 	return (i);
 }
+
+//para %u
+
