@@ -6,7 +6,7 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 15:49:31 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/05/13 19:21:54 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/05/13 19:47:54 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int ft_printf(char const *str, ...)
 	va_start(args, str);
 	int	i;
 	int	count;
+	void	*ptr;
 
 	count = 0;
 	i = 0;
@@ -31,15 +32,21 @@ int ft_printf(char const *str, ...)
 			if (str[i] == 's')
 				count += ft_putstr(va_arg(args, char *));
 			if (str[i] == 'p')
-				count += ft_putnbr_base(va_arg(args, unsigned long));
+			{
+				ptr = va_arg(args, void *);
+				if (ptr)
+					count += ft_putnbr_base((unsigned long) ptr);
+				else
+					count += ft_putstr("(nil)");
+			}
 			if (str[i] == 'd')
 				count += ft_putnbr(va_arg(args, int));
 			if (str[i] == 'i')
 				count += ft_putnbr(va_arg(args, int));
 			if (str[i] == 'u')
-				count += ft_unsigned_write(va_arg(args, unsigned long));
+				count += ft_unsigned_write(va_arg(args, unsigned int));
 			if (str[i] == 'x')
-				count += ft_hexa_min(va_arg(args, unsigned long));
+				count += ft_hexa_min(va_arg(args, unsigned int));
 			if (str[i] == 'X')
 				count += ft_hexa_max(va_arg(args, unsigned long));
 			if (str[i] == '%')

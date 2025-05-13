@@ -6,7 +6,7 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 15:53:21 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/05/13 18:30:59 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/05/13 19:45:56 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_putstr(char *str);
 int ft_unsigned_write(unsigned int n);
 int	ft_putnbr(int str);
 int	ft_putnbr_base(unsigned long);
-int	ft_hexa_min(unsigned long n);
-int	ft_hexa_max(unsigned long n);
+int	ft_hexa_min(unsigned int n);
+int	ft_hexa_max(unsigned int n);
 
 #endif

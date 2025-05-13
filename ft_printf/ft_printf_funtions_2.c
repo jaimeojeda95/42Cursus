@@ -6,14 +6,14 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 17:28:05 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/05/13 19:16:25 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/05/13 19:43:09 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 // para %x
-int	ft_hexa_min(unsigned long n)
+int	ft_hexa_min(unsigned int n)
 {
 	int		i;
 	char	*hex;
@@ -26,7 +26,7 @@ int	ft_hexa_min(unsigned long n)
 }
 
 // para %X
-int	ft_hexa_max(unsigned long n)
+int	ft_hexa_max(unsigned int n)
 {
 	int		i;
 	char	*hex;

@@ -6,7 +6,7 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 20:01:57 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/05/13 19:10:17 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/05/13 19:45:41 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,7 @@
 //imprime un solo caracter %c
 int	ft_putchar(int str)
 {
-	if (!str)
-		return (0);
-	write(1, &str, 1);
-	return (1);
+	return (write(1, &str, 1));
 }
 
 //imprime un string %s
@@ -61,8 +58,6 @@ int	ft_putnbr(int str)
 	int	i;
 
 	i = 0;
-	if (!str)
-		return (0);
 	if (str == -2147483648)
 	{
 		write (1, "-2147483648", 11);
