@@ -1,28 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printf_funtions_2.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/12 15:53:21 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/05/13 18:30:59 by jaojeda-         ###   ########.fr       */
+/*   Created: 2025/05/13 17:28:05 by jaojeda-          #+#    #+#             */
+/*   Updated: 2025/05/13 19:16:25 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdio.h>
-# include <unistd.h>
+// para %x
+int	ft_hexa_min(unsigned long n)
+{
+	int		i;
+	char	*hex;
+	i = 0;
+	hex = "0123456789abcdef";
+	if (n >= 16)
+		i += ft_hexa_min(n / 16); 
+	i += ft_putchar(hex[n % 16]);
+	return (i);
+}
 
-int ft_printf(char const *str, ...);
-int	ft_putchar(int str);
-int	ft_putstr(char *str);
-int ft_unsigned_write(unsigned int n);
-int	ft_putnbr(int str);
-int	ft_putnbr_base(unsigned long);
-int	ft_hexa_min(unsigned long n);
-int	ft_hexa_max(unsigned long n);
-
-#endif
+// para %X
+int	ft_hexa_max(unsigned long n)
+{
+	int		i;
+	char	*hex;
+	i = 0;
+	hex = "0123456789ABCDEF";
+	if (n >= 16)
+		i += ft_hexa_max(n / 16); 
+	i += ft_putchar(hex[n % 16]);
+	return (i);
+}

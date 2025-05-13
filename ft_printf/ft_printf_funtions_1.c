@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_formats.c                                    :+:      :+:    :+:   */
+/*   ft_printf_funtions_1.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaojeda- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 20:01:57 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/05/12 20:02:00 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/05/13 19:10:17 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 //imprime un solo caracter %c
-int	ft_putchar(char str)
+int	ft_putchar(int str)
 {
 	if (!str)
 		return (0);
@@ -41,14 +41,18 @@ int	ft_putstr(char *str)
 }
 
 //para %p
-int	ft_putnbr_base(void	*str)
+int	ft_putnbr_base(unsigned long n)
 {
-	char	x;
+	char	*hex;
+	int		i;
 
-	x = "0123456789ABCDEF";
-	if (str == NULL)
-		write(1, "(nil)", 5);
-	
+	i = 0;
+	hex = "0123456789abcdef";
+	i += write(1, "0x", 2);
+	if (n >= 16)
+		i += ft_hexa_min(n / 16);
+	i += ft_putchar(hex [n % 16]);
+	return (i);
 }
 
 //para %d, &i

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaojeda- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 15:49:31 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/05/12 15:49:33 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/05/13 19:21:54 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,40 @@ int ft_printf(char const *str, ...)
 	{
 		if (str[i] == '%')
 		{
-			if (str[i + 1] == 's')
+			i++;
+			if (str[i] == 'c')
+				count += ft_putchar(va_arg(args, int));
+			if (str[i] == 's')
 				count += ft_putstr(va_arg(args, char *));
+			if (str[i] == 'p')
+				count += ft_putnbr_base(va_arg(args, unsigned long));
+			if (str[i] == 'd')
+				count += ft_putnbr(va_arg(args, int));
+			if (str[i] == 'i')
+				count += ft_putnbr(va_arg(args, int));
+			if (str[i] == 'u')
+				count += ft_unsigned_write(va_arg(args, unsigned long));
+			if (str[i] == 'x')
+				count += ft_hexa_min(va_arg(args, unsigned long));
+			if (str[i] == 'X')
+				count += ft_hexa_max(va_arg(args, unsigned long));
+			if (str[i] == '%')
+				count += write(1, "%", 1);
 		}
 		else
 			count += write(1, &str[i], 1);
+		i++;
 	}
 	va_end(args);
 	return (count);
 }
+// int main(void)
+// {
+// 	int my_count, real_count;
+	
+// 	// 11. Todo junto
+// 	my_count = ft_printf("ft_printf:   ALL -> [%x] [%X] [%%]\n", 0x123abc, 0x123abc);
+// 	real_count = printf("ft_printf:   ALL -> [%x] [%X] [%%]\n", 0x123abc, 0x123abc);
+// 	printf("Return values: ft_printf = %d, printf = %d\n", my_count, real_count);
+// 	return 0;
+// }
