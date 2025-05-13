@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-//imprime un solo caracter
+//imprime un solo caracter %c
 int	ft_putchar(char str)
 {
 	if (!str)
@@ -20,15 +20,18 @@ int	ft_putchar(char str)
 	write(1, &str, 1);
 	return (1);
 }
-//imprime un string
 
+//imprime un string %s
 int	ft_putstr(char *str)
 {
 	int	i;
 
 	i = 0;
 	if (!str)
-		return (0);
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
 	while (str[i] != '\0')
 	{
 		write(1, &str[i], 1);
@@ -37,7 +40,18 @@ int	ft_putstr(char *str)
 	return (i);
 }
 
-////para %d, &i
+//para %p
+int	ft_putnbr_base(void	*str)
+{
+	char	x;
+
+	x = "0123456789ABCDEF";
+	if (str == NULL)
+		write(1, "(nil)", 5);
+	
+}
+
+//para %d, &i
 int	ft_putnbr(int str)
 {
 	int	i;
@@ -62,4 +76,13 @@ int	ft_putnbr(int str)
 }
 
 //para %u
+int ft_unsigned_write(unsigned int n)
+{
+	int	i;
 
+	i = 0;
+	if (n >= 10)
+		i += ft_unsigned_write(n / 10);
+	i += ft_putchar((n % 10) + '0');
+	return (i);
+}
