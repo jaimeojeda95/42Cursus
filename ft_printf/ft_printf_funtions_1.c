@@ -75,7 +75,7 @@ int	ft_putnbr(int str)
 }
 
 //para %u
-int ft_unsigned_write(unsigned int n)
+int	ft_unsigned_write(unsigned int n)
 {
 	int	i;
 

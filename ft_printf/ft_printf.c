@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: PC <PC@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 15:49:31 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/05/13 19:47:54 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/05/14 20:47:26 by PC               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_printf(char const *str, ...)
+int	ft_printf(char const *str, ...)
 {
-	va_list	args;
-	va_start(args, str);
-	int	i;
-	int	count;
+	int		i;
+	int		count;
 	void	*ptr;
+	va_list	args;
 
+	va_start(args, str);
 	count = 0;
 	i = 0;
 	while (str[i] != '\0')
@@ -35,7 +35,7 @@ int ft_printf(char const *str, ...)
 			{
 				ptr = va_arg(args, void *);
 				if (ptr)
-					count += ft_putnbr_base((unsigned long) ptr);
+					count += ft_putnbr_base((unsigned long)ptr);
 				else
 					count += ft_putstr("(nil)");
 			}
@@ -59,13 +59,11 @@ int ft_printf(char const *str, ...)
 	va_end(args);
 	return (count);
 }
-// int main(void)
-// {
-// 	int my_count, real_count;
-	
-// 	// 11. Todo junto
-// 	my_count = ft_printf("ft_printf:   ALL -> [%x] [%X] [%%]\n", 0x123abc, 0x123abc);
-// 	real_count = printf("ft_printf:   ALL -> [%x] [%X] [%%]\n", 0x123abc, 0x123abc);
-// 	printf("Return values: ft_printf = %d, printf = %d\n", my_count, real_count);
-// 	return 0;
-// }
+/* int main(void)
+{
+	char *str = "hola";
+
+	ft_printf("%s\n", str);
+	printf("%s\n", str);
+	return 0;
+} */

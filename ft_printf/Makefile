@@ -49,7 +49,7 @@ $(NAME): $(OBJ)
 #Aquí borra los archivos .o,
 # $(OBJ_BONUS)
 clean:
-	rm -f $(OBJ) 
+	rm -f $(OBJ)
 
 #Esta regla es para borrar los archivos .o y .a (libft)
 fclean: clean
