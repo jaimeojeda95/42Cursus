@@ -6,7 +6,7 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 20:01:57 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/05/13 19:45:41 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/05/16 21:26:14 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,21 +34,6 @@ int	ft_putstr(char *str)
 		write(1, &str[i], 1);
 		i++;
 	}
-	return (i);
-}
-
-//para %p
-int	ft_putnbr_base(unsigned long n)
-{
-	char	*hex;
-	int		i;
-
-	i = 0;
-	hex = "0123456789abcdef";
-	i += write(1, "0x", 2);
-	if (n >= 16)
-		i += ft_hexa_min(n / 16);
-	i += ft_putchar(hex [n % 16]);
 	return (i);
 }
 

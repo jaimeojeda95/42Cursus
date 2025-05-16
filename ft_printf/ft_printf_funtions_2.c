@@ -3,14 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_funtions_2.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: PC <PC@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 17:28:05 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/05/14 19:51:52 by PC               ###   ########.fr       */
+/*   Updated: 2025/05/16 21:47:32 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+//para validad que el puntero sea válido
+int	ft_validate_ptr(void *ptr)
+{
+	int	i;
+
+	i = 0;
+	if (ptr == NULL)
+		i += ft_putstr("(nil)");
+	else
+	{
+		i += write(1, "0x", 2);
+		i += ft_putnbr_base((unsigned long)ptr);
+	}
+	return (i);
+}
+
+//para %p
+int	ft_putnbr_base(unsigned long n)
+{
+	char	*hex;
+	int		i;
+
+	i = 0;
+	hex = "0123456789abcdef";
+	if (n >= 16)
+		i += ft_putnbr_base(n / 16);
+	i += ft_putchar(hex [n % 16]);
+	return (i);
+}
 
 // para %x
 int	ft_hexa_min(unsigned int n)

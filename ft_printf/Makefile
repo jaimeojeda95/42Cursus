@@ -6,7 +6,7 @@ NAME = libftprintf.a
 INCLUDE = ft_printf.h
 #Aquí debo especificar los archivos .c que quiero compilar
 SRC = ft_printf_funtions_1.c ft_printf_funtions_2.c \
-      ft_printf.c
+      ft_printf.c ft_printf_conditions.c 
 
 #Aquí voy a convertir cada archivo .c en su equivalente .o
 #por ejemplo, ft_bzero.c será ft_bzero.o.

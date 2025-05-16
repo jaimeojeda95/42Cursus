@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: PC <PC@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 15:53:21 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/05/14 20:45:58 by PC               ###   ########.fr       */
+/*   Updated: 2025/05/16 21:47:22 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	ft_putnbr(int str);
 int	ft_putnbr_base(unsigned long n);
 int	ft_hexa_min(unsigned int n);
 int	ft_hexa_max(unsigned int n);
-// int	ft_printf_conditions(char format, int count, va_list args);
+int	ft_validate_ptr(void *ptr);
+int	ft_printf_conditions(char format, va_list args);
 
 #endif
