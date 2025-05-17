@@ -6,25 +6,16 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 13:44:45 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/05/17 16:11:10 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/05/17 19:08:29 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* char *get_next_line(int fd)
-{
-	int	i;
-	
-	i = 0;
-} */
-#include <fcntl.h>
-#include <unistd.h>
-#include <stdio.h>
+#include "get_next_line.h"
 
-int	main(void)
+char *get_next_line(int fd)
 {
-	int		fd;
-	char	buffer[100];
-	int		bytes_read;
+	ssize_t	bytes_read;
+	char	buffer[BUFFER_SIZE];
 	
 	fd = open("prueba.txt", O_RDONLY);
 	if (fd == -1)
@@ -32,7 +23,7 @@ int	main(void)
 		perror("Error al abrir el archivo");
 		return(1);
 	}
-	bytes_read = read(fd, buffer, 100);
+	bytes_read = read(fd, buffer, BUFFER_SIZE);
 	if (bytes_read == -1)
 	{
 		perror("Error al leer el archivo");
@@ -40,7 +31,7 @@ int	main(void)
 		return (1);
 	}
 	buffer[bytes_read] = '\0';
-	printf("Contenido leído: %s\n", buffer);
+	printf("%s\n", buffer);
 	close(fd);
 	return (0);
 }
