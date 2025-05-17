@@ -1,0 +1,46 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/17 13:44:45 by jaojeda-          #+#    #+#             */
+/*   Updated: 2025/05/17 16:11:10 by jaojeda-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* char *get_next_line(int fd)
+{
+	int	i;
+	
+	i = 0;
+} */
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdio.h>
+
+int	main(void)
+{
+	int		fd;
+	char	buffer[100];
+	int		bytes_read;
+	
+	fd = open("prueba.txt", O_RDONLY);
+	if (fd == -1)
+	{
+		perror("Error al abrir el archivo");
+		return(1);
+	}
+	bytes_read = read(fd, buffer, 100);
+	if (bytes_read == -1)
+	{
+		perror("Error al leer el archivo");
+		close(fd);
+		return (1);
+	}
+	buffer[bytes_read] = '\0';
+	printf("Contenido leído: %s\n", buffer);
+	close(fd);
+	return (0);
+}
