@@ -6,7 +6,7 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 13:44:45 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/05/17 19:27:17 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/05/19 22:18:28 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,39 @@
 
 char *get_next_line(int fd)
 {
-	ssize_t	bytes_read;
+	static char	*ptr = NULL;
+	ssize_t	bytes_read = 1;
 	char	buffer[BUFFER_SIZE + 1];
-	char	*acumulate_str;
+	char *temp;
 	
-	fd = open("prueba.txt", O_RDONLY);
-	if (fd == -1)
+	while (!ft_strchr(ptr, '\n') && bytes_read != 0)
 	{
-		perror("Error al abrir el archivo");
-		return(1);
+		bytes_read = read(fd, buffer, BUFFER_SIZE);
+		temp = ft_strjoin(ptr,buffer);
+		free(ptr);
+		ptr = ft_strdup(temp);
+		free(temp);
 	}
-	bytes_read = read(fd, buffer, BUFFER_SIZE);
-	while (bytes_read != '\n')
+	if 
 	if (bytes_read == -1)
 	{
 		perror("Error al leer el archivo");
 		close(fd);
-		return (1);
+		return (ptr_aux);
 	}
 	buffer[bytes_read] = '\0';
 	printf("%s\n", buffer);
 	close(fd);
 	return (0);
 }
+
+/* int	main(void)
+{
+	fd = open("prueba.txt", O_RDONLY);
+	if (fd == -1)
+	{
+		perror("Error al leer el archivo");
+		return(1);
+	}
+	
+} */
