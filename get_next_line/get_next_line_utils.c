@@ -6,31 +6,11 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 14:16:59 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/05/19 22:03:43 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/05/20 21:48:18 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-char	*ft_strchr(const char *str, int c)
-{
-	size_t	i;
-	char	*str_temp;
-	char	c_temp;
-
-	c_temp = (char)c;
-	str_temp = (char *)str;
-	i = 0;
-	if (c_temp == '\0')
-		return ((str_temp + ft_strlen(str_temp)));
-	while (str_temp[i] != '\0')
-	{
-		if (str_temp[i] == c_temp)
-			return ((str_temp + i));
-		i++;
-	}
-	return (NULL);
-}
 
 size_t	ft_strlen(const char	*str)
 {
@@ -42,6 +22,28 @@ size_t	ft_strlen(const char	*str)
 		i++;
 	}
 	return (i);
+}
+
+char	*ft_strchr(const char *str, int c)
+{
+	size_t	i;
+	char	*str_temp;
+	char	c_temp;
+
+	c_temp = (char)c;
+	str_temp = (char *)str;
+	i = 0;
+	if (!str)
+		return (NULL);
+	if (c_temp == '\0')
+		return ((str_temp + ft_strlen(str_temp)));
+	while (str_temp[i] != '\0')
+	{
+		if (str_temp[i] == c_temp)
+			return ((str_temp + i));
+		i++;
+	}
+	return (NULL);
 }
 
 char	*ft_strdup(const char *s)
@@ -63,6 +65,7 @@ char	*ft_strdup(const char *s)
 	ptr[i] = '\0';
 	return (ptr);
 }
+
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	size_t	i;

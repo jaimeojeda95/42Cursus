@@ -1,4 +1,1 @@
-hola
-Coddy,
-como
-estás?
+Hola Coddy, como estás?

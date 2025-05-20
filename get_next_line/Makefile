@@ -1,11 +1,11 @@
 #Primero defino el nombre del programa
 #(NAME tambien lo puedo llamar TARGET)
 
-NAME = gnl.a
+NAME = getextline.a
 
 INCLUDE = get_next_line.h
 #Aquí debo especificar los archivos .c que quiero compilar
-SRC = get_next_line.c get_next_line_utils.c prueba.c\
+SRC = get_next_line.c get_next_line_utils.c\
 
 #Aquí voy a convertir cada archivo .c en su equivalente .o
 #por ejemplo, ft_bzero.c será ft_bzero.o.
