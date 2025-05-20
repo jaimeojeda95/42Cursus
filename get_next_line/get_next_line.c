@@ -6,13 +6,14 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 13:44:45 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/05/20 21:47:40 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/05/20 22:15:39 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-// Leer, buscar y almacenar
+
+// Funcion principal 
 char	*get_next_line(int fd)
 {
 	static char	*ptr = NULL;
@@ -37,11 +38,20 @@ char	*get_next_line(int fd)
 		ptr = ft_strdup(temp);
 		free(temp);
 	}
-	close(fd);
 	return (ptr);
 }
 
-// Función para cortar lo almacenado
+// Funcion para guardar un bloque (hasta \n o \0)
+char	ft_save_blocks(int fd, char ptr)
+{
+	
+}
+
+// Función para añadir otros bloques
+char	ft_add_blocks(char ptr)
+{
+	
+}
 
 int	main(void)
 {
