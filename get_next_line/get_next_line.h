@@ -6,7 +6,7 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 14:13:06 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/05/20 22:14:42 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/05/21 16:20:00 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,11 @@
 # include <stdlib.h>
 
 char	*get_next_line(int fd);
-char	ft_save_blocks(int fd, char ptr);
+char	*ft_separate_lines(char *ptr);
 char	*ft_strdup(const char *s);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+size_t	ft_strlen(const char	*str);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 14:16:59 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/05/20 21:48:18 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/05/21 15:20:27 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	j;
 	char	*str3;
 
+	if (!s1)
+		s1 = ft_strdup("");
 	str3 = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (str3 == NULL)
 		return (NULL);
@@ -89,4 +91,31 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	}
 	str3[i + j] = '\0';
 	return (str3);
+}
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*str;
+	size_t	i;
+	size_t	str_len;
+
+	if (s == NULL)
+		return (NULL);
+	str_len = ft_strlen(s);
+	if (start > str_len)
+		return (ft_strdup(""));
+	if (len > str_len - start)
+		len = str_len - start;
+	str = malloc(len + 1);
+	if (str == NULL)
+		return (NULL);
+	i = 0;
+	while (i < len && s[start] != '\0')
+	{
+		str[i] = s[start];
+		start++;
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }

@@ -6,7 +6,7 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 13:44:45 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/05/20 22:15:39 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/05/21 17:27:14 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,9 @@ char	*get_next_line(int fd)
 	ssize_t		bytes_read;
 	char		buffer[BUFFER_SIZE + 1];
 	char		*temp;
+	char		*real_line;
 
 	bytes_read = 1;
-	if (!ptr)
-		ptr = ft_strdup("");
 	while (!ft_strchr(ptr, '\n') && bytes_read != 0)
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
@@ -38,19 +37,31 @@ char	*get_next_line(int fd)
 		ptr = ft_strdup(temp);
 		free(temp);
 	}
-	return (ptr);
+	real_line = ft_separate_lines(ptr);
+	return (real_line);
 }
 
-// Funcion para guardar un bloque (hasta \n o \0)
-char	ft_save_blocks(int fd, char ptr)
+char	*ft_separate_lines(char *ptr)
 {
-	
-}
+	char	*new_str1;
+	char	*new_str2;
+	int		i;
+	int		j;
 
-// Función para añadir otros bloques
-char	ft_add_blocks(char ptr)
-{
-	
+	i = 0;
+	j = 0;
+	while(ptr[i] != '\0')
+	{
+		if (ptr[i] == '\n')
+		{
+			new_str1 = ft_substr(ptr, j, (i - j));
+			free (ptr);
+		}
+		else if (ptr[i] != '\0')
+			new_str2 = ft_substr(ptr, i, (ft_strlen(ptr) - ft_strlen(new_str1)));
+		i++;
+	}
+	return(new_str1);
 }
 
 int	main(void)
@@ -64,9 +75,9 @@ int	main(void)
 		return (1);
 	}
 	char	*line = get_next_line(fd);
-	if (line)
+	if(line)
     {
-        printf("%s", line);
+        printf("%s\n", line);
 		free(line);
     }
 	close (fd);
