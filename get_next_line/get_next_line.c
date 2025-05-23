@@ -6,7 +6,7 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 13:44:45 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/05/23 18:19:39 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/05/23 18:26:40 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ char	*get_next_line(int fd)
 		free(temp);
 	}
 	real_line = ft_separate_lines(storage);
+	free (storage);
+	storage = ft_substr(storage, ft_strlen(real_line), (ft_strlen(storage)));
 	return (real_line);
 }
 
@@ -57,8 +59,8 @@ char	*ft_separate_lines(char *storage)
 			str_temp = ft_substr(storage, j, (i - j));
 			new_str1 = ft_strdup(str_temp);
 			free (str_temp);
-			str_temp = ft_substr(storage, i, (ft_strlen(storage)));
-			storage = ft_strdup(str_temp);
+			// str_temp = ft_substr(storage, i, (ft_strlen(storage)));
+			// storage = ft_strdup(str_temp);
 			// free(str_temp);
 		}
 		i++;
