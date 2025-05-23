@@ -6,7 +6,7 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 13:44:45 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/05/23 18:26:40 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/05/23 22:01:37 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,16 @@ char	*get_next_line(int fd)
 		storage = ft_strdup(temp);
 		free(temp);
 	}
-	real_line = ft_separate_lines(storage);
+	real_line = ft_separate_lines(storage, bytes_read);
+	if (real_line == NULL)
+		return (NULL);
 	free (storage);
 	storage = ft_substr(storage, ft_strlen(real_line), (ft_strlen(storage)));
 	return (real_line);
 }
 
-char	*ft_separate_lines(char *storage)
+		
+char	*ft_separate_lines(char *storage, ssize_t bytes_read)
 {
 	char	*new_str1 = NULL;
 	char	*str_temp;
@@ -56,14 +59,22 @@ char	*ft_separate_lines(char *storage)
 	{
 		if (storage[i] == '\n')
 		{
-			str_temp = ft_substr(storage, j, (i - j));
+			str_temp = ft_substr(storage, j, (i - j) + 1);
 			new_str1 = ft_strdup(str_temp);
 			free (str_temp);
-			// str_temp = ft_substr(storage, i, (ft_strlen(storage)));
-			// storage = ft_strdup(str_temp);
-			// free(str_temp);
 		}
 		i++;
+		if (bytes_read == 0)
+		{
+			if (storage)
+			{
+				str_temp = ft_substr(storage, j, (i - j) + 1);
+				new_str1 = ft_strdup(str_temp);
+				free (str_temp);
+			}
+			else
+				return (NULL);
+		}
 	}
 	return(new_str1);
 }
@@ -78,27 +89,28 @@ int	main(void)
 		perror("Error al leer el archivo");
 		return (1);
 	}
-	
-	char	*line = get_next_line(fd);
-	if (line)
+	char	*line = "ENTRE";
+	while (line)
 	{
-		printf("%s\n", line);
-		// free(line);
+		line = get_next_line(fd);
+		printf("%s", line);
+		free(line);
 	}
+	// char	*line2 = get_next_line(fd);
+	// if (line2)
+	// 	printf("%s", line2);
+	
+	// char	*line3 = get_next_line(fd);
+	// if (line3)
+	// 	printf("%s", line3);
+		
+	// char	*line4 = get_next_line(fd);
+	// if (line4)
+	// 	printf("%s\n", line4);
 
-	char	*line2 = get_next_line(fd);
-	if (line2)
-	{
-		printf("%s\n", line2);
-		// free(line2);
-	}
-	
-	char	*line3 = get_next_line(fd);
-	if (line2)
-	{
-		printf("%s\n", line3);
-		// free(line2);
-	}
+	// char	*line5 = get_next_line(fd);
+	// if (!line5)
+	// 	printf("%s", line5);
 	close (fd);
 	return (0);
 }
