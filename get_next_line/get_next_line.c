@@ -6,19 +6,19 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 13:44:45 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/05/28 15:58:51 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/05/28 19:23:24 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
 // Funcion principal
-char *get_next_line(int fd)
+char	*get_next_line(int fd)
 {
-	static char *storage = NULL;
-	ssize_t bytes_read;
-	char *real_line;
-	char *temp;
+	static char	*storage = NULL;
+	ssize_t		bytes_read;
+	char		*real_line;
+	char		*temp;
 
 	storage = create_storage(fd, storage, &bytes_read);
 	if (!storage)
@@ -32,10 +32,10 @@ char *get_next_line(int fd)
 	return (real_line);
 }
 
-char *create_storage(int fd, char *storage, ssize_t *bytes_read)
+char	*create_storage(int fd, char *storage, ssize_t *bytes_read)
 {
-	char buffer[BUFFER_SIZE + 1];
-	char *temp;
+	char	buffer[BUFFER_SIZE + 1];
+	char	*temp;
 
 	*bytes_read = 1;
 	while (!ft_strchr(storage, '\n') && *bytes_read != 0)
@@ -55,15 +55,16 @@ char *create_storage(int fd, char *storage, ssize_t *bytes_read)
 	return (storage);
 }
 
-char *ft_separate_lines(char *storage, ssize_t bytes_read)
+char	*ft_separate_lines(char *storage, ssize_t bytes_read)
 {
-	char *new_str1 = NULL;
-	char *str_temp;
-	int i;
-	int j;
+	char	*new_str1;
+	char	*str_temp;
+	int		i;
+	int		j;
 
 	i = 0;
 	j = 0;
+	new_str1 = NULL;
 	while (storage[i] != '\0')
 	{
 		if (storage[i] == '\n')
@@ -77,15 +78,26 @@ char *ft_separate_lines(char *storage, ssize_t bytes_read)
 		i++;
 		if (bytes_read == 0)
 		{
-			if (new_str1)
-				free(new_str1);
-			return (end_of_file(storage, i, j));
+			if (storage)
+			{
+				str_temp = ft_substr(storage, j, (i - j) + 1);
+				if (new_str1)
+					free (new_str1);
+				new_str1 = ft_strdup(str_temp);
+				free (str_temp);
+			}
+			else
+			{
+				free (storage);
+				storage = NULL;
+				return (NULL);
+			}
 		}
 	}
 	return (new_str1);
 }
 
-char *end_of_file(char *storage, int i, int j)
+/* char *end_of_file(char *storage, int i, int j)
 {
 	char	*new_str2 = NULL;
 	char	*str_temp;
@@ -104,7 +116,7 @@ char *end_of_file(char *storage, int i, int j)
 		storage = NULL;
 		return (NULL);
 	}
-}
+} */
 /* int	main(void)
 {
 	int		fd;
