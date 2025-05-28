@@ -6,7 +6,7 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 14:16:59 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/05/21 15:20:27 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/05/28 14:38:40 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*str3;
 
 	if (!s1)
-		s1 = ft_strdup("");
+		s1 = "";
+	if (!s2)
+		s1 = "";
 	str3 = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (str3 == NULL)
 		return (NULL);
