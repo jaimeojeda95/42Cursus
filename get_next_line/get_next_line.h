@@ -6,7 +6,7 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 14:13:06 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/05/28 15:47:43 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/06/18 22:14:41 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 
 char	*get_next_line(int fd);
 char	*create_storage(int fd, char *storage, ssize_t *bytes_read);
-char	*ft_separate_lines(char *storage, ssize_t bytes_read);
+char	*ft_separate_lines(char *storage);
 char	*ft_strdup(const char *s);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strjoin(char const *s1, char const *s2);
