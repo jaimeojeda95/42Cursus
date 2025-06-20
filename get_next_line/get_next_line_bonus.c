@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/17 13:44:45 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/06/20 18:32:16 by jaojeda-         ###   ########.fr       */
+/*   Created: 2025/06/20 18:42:36 by jaojeda-          #+#    #+#             */
+/*   Updated: 2025/06/20 18:51:06 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*get_next_line(int fd)
 {
-	static char	*storage = NULL;
+	static char	*storage[1024];
 	ssize_t		bytes_read;
 	char		*line;
 	char		*temp;
@@ -22,18 +22,19 @@ char	*get_next_line(int fd)
 	bytes_read = 1;
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	storage = create_storage(fd, storage, &bytes_read);
-	if (!storage)
+	storage[fd] = create_storage(fd, storage[fd], &bytes_read);
+	if (!storage[fd])
 		return (NULL);
-	line = ft_separate_lines(storage);
+	line = ft_separate_lines(storage[fd]);
 	if (!line)
 	{
-		free(storage);
-		storage = NULL;
+		free(storage[fd]);
+		storage[fd] = NULL;
 		return (NULL);
 	}
-	temp = storage;
-	storage = ft_substr(storage, ft_strlen(line), (ft_strlen(storage)));
+	temp = storage[fd];
+	storage[fd] = ft_substr(storage[fd], ft_strlen(line),
+			(ft_strlen(storage[fd])));
 	free(temp);
 	return (line);
 }
@@ -79,25 +80,3 @@ char	*ft_separate_lines(char *storage)
 		i++;
 	return (ft_substr(storage, 0, i));
 }
-
-/* int	main(void)
-{
-	int		fd;
-
-	printf("%i\n", BUFFER_SIZE);
-	fd = open("prueba.txt", O_RDONLY);
-	if (fd == -1)
-	{
-		perror("Error al leer el archivo");
-		return (1);
-	}
-	char	*line = "ENTRÉ";
-	while (line)
-	{
-		line = get_next_line(fd);
-		printf("%s", line);
-		free(line);
-	}
-	close (fd);
-	return (0);
-} */
