@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaojeda- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 15:00:32 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/04/18 17:26:26 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/07/14 22:19:38 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,8 +100,8 @@ char	**ft_split(char const *s, char c)
 	result_final[count] = NULL;
 	return (result_final);
 }
-/*
-int main(void)
+
+/* int main(void)
 {
 	const char *s = "     Hola Coddy      como estas?    ";
 	int i;
@@ -114,4 +114,4 @@ int main(void)
 		i++;
 	}
 	return (0);
-}*/
+} */

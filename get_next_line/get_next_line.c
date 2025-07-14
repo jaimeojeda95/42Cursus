@@ -6,7 +6,7 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 13:44:45 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/06/20 18:32:16 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/06/25 18:22:58 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ char	*ft_separate_lines(char *storage)
 	char	*line = "ENTRÉ";
 	while (line)
 	{
-		line = get_next_line(fd);
+		line = get_next_line(0);
 		printf("%s", line);
 		free(line);
 	}

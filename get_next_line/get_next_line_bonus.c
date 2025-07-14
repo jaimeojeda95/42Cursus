@@ -6,7 +6,7 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 18:42:36 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/06/20 18:51:06 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/06/25 21:16:37 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,3 +80,31 @@ char	*ft_separate_lines(char *storage)
 		i++;
 	return (ft_substr(storage, 0, i));
 }
+/* int	main(void)
+{
+	int	fd[2];
+	fd[0]	= open("prueba.txt", O_RDONLY);
+	fd[1]	= open("prueba2.txt", O_RDONLY);
+	char *line;
+	char *line2;
+	line = "";
+	if	(fd[0] == -1 || fd[1] == -1)
+	{
+		printf("error de lectura");
+		return (1);
+	}
+
+	while (line)
+	{
+		line = get_next_line(3);
+		printf("%s", line);
+		free(line);
+		line2 = get_next_line(fd[1]);
+		printf("%s", line2);
+		free(line2);
+	}
+ 	close(fd[0]);
+ 	close(fd[1]);
+	
+	return (0);
+} */
