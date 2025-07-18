@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/16 21:03:11 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/07/18 17:27:27 by jaojeda-         ###   ########.fr       */
+/*   Created: 2025/07/16 19:48:31 by jaojeda-          #+#    #+#             */
+/*   Updated: 2025/07/18 14:57:46 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSHSWAP_H
-# define PUSHSWAP_H
+#include "libft.h"
 
-# include "libft.h"
-# include <stdio.h>
-# include <unistd.h>
-# include <stdarg.h>
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	size_t	i;
 
-char	**parse_int(int argc, char **argv);
-void	check_errors(int argc, char **argv);
-
-#endif
+	i = 0;
+	while (s1[i] || s2[i])
+	{
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		i++;
+	}
+	return (0);
+}

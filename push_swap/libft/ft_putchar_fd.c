@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jaojeda- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/16 21:03:11 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/07/18 17:27:27 by jaojeda-         ###   ########.fr       */
+/*   Created: 2025/04/24 16:01:46 by jaojeda-          #+#    #+#             */
+/*   Updated: 2025/04/24 16:18:05 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSHSWAP_H
-# define PUSHSWAP_H
+#include "libft.h"
 
-# include "libft.h"
-# include <stdio.h>
-# include <unistd.h>
-# include <stdarg.h>
+//fd si es 1, es para mostrar en pantalla
 
-char	**parse_int(int argc, char **argv);
-void	check_errors(int argc, char **argv);
-
-#endif
+void	ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
+}
