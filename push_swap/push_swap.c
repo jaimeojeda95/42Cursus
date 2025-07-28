@@ -3,96 +3,73 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: PC <PC@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 19:18:45 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/07/18 17:52:51 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/07/26 19:45:39 by PC               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* void	check_errors_digits_duplicates(int	argc, char **argv)
+// Creo un storage (args) en donde meto todos los argumentos
+char	***evaluate_arguments(int argc, char **argv)
 {
-	int	i;
-	int	j;
-	
+	char	***args;
+	args = malloc(sizeof(char **) * (argc - 1));
+	int		i;
+
 	i = 1;
 	while (i < argc)
 	{
-		ft_atoi(argv[i]);
-		j = i + 1;
-		while (j < argc)
-		{
-			ft_atoi(argv[j]);
-			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
-				write(1, "Error\n", 6);
-			j++;
-		}
+		args[i - 1] = ft_split(argv[i], ' ');
+		if (args[i - 1] == NULL)
+		return (NULL);
 		i++;
 	}
-} */
+	return (args);
+}
 
-/* void	check_errors(int argc, char **argv)
+// Debo evaluar los argumentos de args
+int	validate_args(int argc, char ***args)
 {
-	int	i;
-	int	j;
-	
-	i = 1;
-	if (argc == 1)
-		return ;
+	char	*str;
+	int		i;
+	int		j;
+
+	i = 0;
+	str = args[i][j];
 	while (i < argc)
 	{
 		j = 0;
-		if (argv[i][j] == '+' || argv[i][j] == '-')
-			j++;
-		while (argv[i][j])
+		while (str != NULL)
 		{
-			if (!ft_isdigit(argv[i][j]))
-			{
-				write(1, "Error\n", 6);
-				return ;
-			}
-			j++;
+			if (str == '+' || str == '-')
+				j++;
+				
 		}
-		i++;
+		j++;
 	}
-	// check_errors_digits_duplicates(argc, argv);
-}
-
-char	**parse_int(int argc, char **argv)
-{
-	int	i;
-	char **args;
-
-	i = 1;
-	while (i < argc)
-	{
-		args = ft_split(argv[i], ' ');
-		if (args == NULL)
-			return (NULL);
-		i++;
-	}
-	printf("argv[3]: %s\n", args[0]);
-	return(args);
-} */
-
-char	**evaluate(int argc, char **argv)
-{
-	char	**storage;
-
-	
+	i++;
 }
 
 
 int	main(int argc, char **argv)
 {
-	char	**args;
+	char	***args;
+	int		i;
 
-	check_errors(argc, argv);
-	/* if (argc < 2)
-		return (0); */
-	args = parse_int(argc, argv);
-	
+	args = evaluate_arguments(argc, argv);
+	i = 0;
+	while (i < argc - 1)
+	{
+		int j = 0;
+		while (args[i][j] != NULL)
+		{
+			printf("argv[%d][%d]: %s\n", i, j, args[i][j]);
+			j++;
+		}
+		i++;
+	}
 	return (0);
 }
