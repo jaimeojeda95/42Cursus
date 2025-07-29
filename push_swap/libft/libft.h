@@ -6,7 +6,7 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 22:15:22 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/07/18 14:31:29 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/07/29 20:41:33 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+# include <limits.h>
 
 /* typedef struct s_list
 {
@@ -25,7 +26,7 @@
 }	t_list; */
 
 int		ft_atoi(const char *nptr);
-int		ft_atol(const char *nptr);
+long	ft_atol(const char *nptr);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
@@ -60,5 +61,23 @@ void	ft_putstr_fd(char *s, int fd);
 size_t	ft_strlen(const char	*str);
 size_t	ft_strlcat(char	*dest, const char	*src, size_t	size);
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
+int		ft_printf(char const *str, ...);
+int		ft_putchar(int str);
+int		ft_putstr(char *str);
+int		ft_unsigned_write(unsigned int n);
+int		ft_putnbr(int str);
+int		ft_putnbr_base(unsigned long n);
+int		ft_hexa_min(unsigned int n);
+int		ft_hexa_max(unsigned int n);
+int		ft_validate_ptr(void *ptr);
+int		ft_printf_conditions(char format, va_list args);
+char	*get_next_line(int fd);
+char	*create_storage(int fd, char *storage, ssize_t *bytes_read);
+char	*ft_separate_lines(char *storage);
+char	*ft_strdup(const char *s);
+char	*ft_strchr(const char *str, int c);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+size_t	ft_strlen(const char	*str);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 19:18:45 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/07/28 22:50:25 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/07/29 20:32:32 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ char	***evaluate_arguments(int argc, char **argv)
 	return (args);
 }
 
+// Reviso los signos y que sean digitos
 int	validate_args(int argc, char ***args)
 {
 	int		i;
@@ -47,12 +48,12 @@ int	validate_args(int argc, char ***args)
 			if (args[i][j][k] == '+' || args[i][j][k] == '-')
 			{
 				if (!ft_isdigit(args[i][j][k + 1]))
-					return (printf("Error\n"), 0);
+					return (ft_printf("Error\n"), 0);
 				k++;
 			}
 			while (args[i][j][k])
 				if (!ft_isdigit(args[i][j][k++]))
-					return (printf("Error\n"), 0);
+					return (ft_printf("Error\n"), 0);
 			j++;
 		}
 		i++;
@@ -60,44 +61,30 @@ int	validate_args(int argc, char ***args)
 	return (1);
 }
 
-// Debo evaluar los argumentos de args
-/* int	validate_args(int argc, char ***args)
+// Valido que os argumentos no sean INT MAX O MIN
+int	validate_int(int argc, char ***args)
 {
 	int		i;
 	int		j;
-	int		k;
+	long	n;
 
 	i = 0;
-	while (i < argc - 1)
+	while (i < argc -1)
 	{
 		j = 0;
 		while (args[i][j] != NULL)
 		{
-			k = 0;
-			if (args[i][j][k] == '+' || args[i][j][k] == '-')
-			{
-				if (!ft_isdigit(args[i][j][1]))
-				{
-					printf("Error\n");
-					return(0);
-				}
-				k = 1;
-			}
-			while (args[i][j][k])
-			{
-				if (!ft_isdigit(args[i][j][k]))
-				{
-					printf ("Error\n");
-					return (0);
-				}
-				k++;
-			}
+			n = ft_atol(args[i][j]);
+			if (n < INT_MIN || n > INT_MAX)
+				return (ft_printf("Error\n"), 0);
 			j++;
 		}
 		i++;
 	}
 	return (1);
-} */
+}
+
+// Convierto de strings a int (parseo)
 
 
 int	main(int argc, char **argv)
@@ -108,6 +95,8 @@ int	main(int argc, char **argv)
 	args = evaluate_arguments(argc, argv);
 	if (!validate_args(argc, args))
 		return (1);
+	if (!validate_int(argc, args))
+		return (1);
 
 	i = 0;
 	while (i < argc - 1)
@@ -115,7 +104,7 @@ int	main(int argc, char **argv)
 		int j = 0;
 		while (args[i][j] != NULL)
 		{
-			printf("argv[%d][%d]: %s\n", i, j, args[i][j]);
+			ft_printf("argv[%d][%d]: %s\n", i, j, args[i][j]);
 			j++;
 		}
 		i++;

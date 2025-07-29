@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/16 21:03:11 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/07/29 19:49:31 by jaojeda-         ###   ########.fr       */
+/*   Created: 2025/05/12 15:53:21 by jaojeda-          #+#    #+#             */
+/*   Updated: 2025/05/16 21:47:22 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-# include "libft.h"
 # include <stdio.h>
 # include <unistd.h>
 # include <stdarg.h>
-# include <limits.h>
 
-// char	**parse_int(int argc, char **argv);
-char	***evaluate_arguments(int argc, char **argv);
-int		validate_args(int argc, char ***args);
-int		validate_int(int argc, char ***args);
-
+int	ft_printf(char const *str, ...);
+int	ft_putchar(int str);
+int	ft_putstr(char *str);
+int	ft_unsigned_write(unsigned int n);
+int	ft_putnbr(int str);
+int	ft_putnbr_base(unsigned long n);
+int	ft_hexa_min(unsigned int n);
+int	ft_hexa_max(unsigned int n);
+int	ft_validate_ptr(void *ptr);
+int	ft_printf_conditions(char format, va_list args);
 
 #endif
