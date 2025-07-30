@@ -6,7 +6,7 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 19:18:45 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/07/29 20:32:32 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/07/30 22:09:31 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,11 @@ char	***evaluate_arguments(int argc, char **argv)
 {
 	char	***args;
 	int		i;
+	int		j;
 
 	args = malloc(sizeof(char **) * (argc));
+	if (args == NULL)
+		return (NULL);
 	i = 1;
 	while (i < argc)
 	{
@@ -27,6 +30,7 @@ char	***evaluate_arguments(int argc, char **argv)
 			return (NULL);
 		i++;
 	}
+	j = 0;
 	args[argc - 1] = NULL;
 	return (args);
 }
@@ -83,23 +87,53 @@ int	validate_int(int argc, char ***args)
 	}
 	return (1);
 }
+	
+// Evaluo si son duplicados
+int	evaluate_duplicate(char **flat_args)
+{
+	int	i;
+	int	j;
+	int	n;
+	int	k;
 
-// Convierto de strings a int (parseo)
-
+	i = 0;
+	while (flat_args[i] != NULL)
+	{
+		n = ft_atol(flat_args[i]);
+		j = i + 1;
+		while (flat_args[j])
+		{
+			k = ft_atol(flat_args[j]);
+			if (n == k)
+				return (ft_printf("Error\n"), 0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
 
 int	main(int argc, char **argv)
 {
 	char	***args;
+	char	**flat_args;
 	int		i;
 
 	args = evaluate_arguments(argc, argv);
+	if (args == NULL)
+		return (1);
 	if (!validate_args(argc, args))
 		return (1);
 	if (!validate_int(argc, args))
 		return (1);
-
+	flat_args = flat_list1(args);
+	if (!flat_args)
+		return (1);
+	if (!evaluate_duplicate(flat_args))
+		return (1);
+	
 	i = 0;
-	while (i < argc - 1)
+	/* while (i < argc - 1)
 	{
 		int j = 0;
 		while (args[i][j] != NULL)
@@ -107,6 +141,12 @@ int	main(int argc, char **argv)
 			ft_printf("argv[%d][%d]: %s\n", i, j, args[i][j]);
 			j++;
 		}
+		i++;
+	} */
+	
+	while (flat_args[i] != NULL)
+	{
+		ft_printf("args[%d]: %s\n", i, flat_args[i]);
 		i++;
 	}
 	return (0);

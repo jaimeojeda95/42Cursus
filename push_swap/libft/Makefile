@@ -55,7 +55,7 @@ $(NAME): $(OBJ)
 
 #Esto es una regla génerica para compilar de .c a .o
 %.o: %.c
-	$(CC) $(CFLAGS) -I. -c $< -o $@
+	@$(CC) $(CFLAGS) -I. -c $< -o $@
 
 #Esto dice --> $(CC) : El compilador (por defecto es cc)
 # $(CFLAGS): banderas de compilación (-Wall -Wextra -Werror)
@@ -66,11 +66,11 @@ $(NAME): $(OBJ)
 #Aquí borra los archivos .o,
 # $(OBJ_BONUS)
 clean:
-	rm -f $(OBJ) 
+	@rm -f $(OBJ) 
 
 #Esta regla es para borrar los archivos .o y .a (libft)
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 #Esta regla es para limpiar todo y volver a compilar desde cero
 re: fclean all
