@@ -4,7 +4,7 @@ INCLUDES = -I include -I libft -I.
 LIBFT = libft/libft.a
 
 #Aquí debo especificar los archivos .c que quiero compilar
-SRC = push_swap.c flat_list.c
+SRC = push_swap.c flat_list.c check_errors.c
 
 #Aquí voy a convertir cada archivo .c en su equivalente .o
 #por ejemplo, ft_bzero.c será ft_bzero.o.

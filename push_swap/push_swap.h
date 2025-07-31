@@ -6,7 +6,7 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 21:03:11 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/07/30 21:00:56 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/07/31 16:27:04 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 char	***evaluate_arguments(int argc, char **argv);
 int		validate_args(int argc, char ***args);
 int		validate_int(int argc, char ***args);
-// int		validate_duplicate(int argc, char ***args);
 char	**flat_list1(char ***args);
 char	**flat_list2(char ***args, int n);
+int		evaluate_duplicate(char **flat_args);
 
 #endif

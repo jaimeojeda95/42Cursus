@@ -6,13 +6,14 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 21:00:15 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/07/30 21:00:33 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/07/31 16:24:57 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // Llevo args a una lista plana (char **)
+// Cuento cuantos argumentos hay
 char	**flat_list1(char ***args)
 {
 	int		i;
@@ -38,6 +39,7 @@ char	**flat_list1(char ***args)
 	return (flat_args);
 }
 
+// Aquí creo la lista plana (el array) como tal
 char	**flat_list2(char ***args, int n)
 {
 	char	**flat_args;
