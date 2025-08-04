@@ -6,7 +6,7 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 16:25:33 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/07/31 16:31:52 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/08/04 18:14:23 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,27 @@ int	evaluate_duplicate(char **flat_args)
 		i++;
 	}
 	return (1);
+}
+
+// Para hacer free
+void	free_args(char ***args)
+{
+	int		i;
+	int		j;
+		
+	i = 0;
+	if (!args)
+		return;
+	while(args[i])
+	{
+		j = 0;
+		while(args[i][j])
+		{
+			free(args[i][j]);
+			j++;
+		}
+		free(args[i]);
+		i++;
+	}
+	free (args);
 }

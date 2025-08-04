@@ -6,7 +6,7 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 21:03:11 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/07/31 21:54:01 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/08/04 18:45:36 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,16 @@
 # include <stdarg.h>
 # include <limits.h>
 
-//
+typedef struct s_stack_node
+{
+	int		value;
+	int		index;
+	int		cost;
+	struct s_stack_node	*target_node;
+	struct s_stack_node	*next;
+	struct s_stack_node	*prev;
+}	t_stack_node;
+
 
 char	***evaluate_arguments(int argc, char **argv);
 int		validate_args(int argc, char ***args);
@@ -27,5 +36,6 @@ int		validate_int(int argc, char ***args);
 char	**flat_list1(char ***args);
 char	**flat_list2(char ***args, int n);
 int		evaluate_duplicate(char **flat_args);
+void	free_args(char ***args);
 
 #endif
