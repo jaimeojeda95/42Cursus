@@ -6,7 +6,7 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 21:03:11 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/08/04 18:45:36 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/08/04 20:26:15 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ typedef struct s_stack_node
 	int		value;
 	int		index;
 	int		cost;
-	struct s_stack_node	*target_node;
-	struct s_stack_node	*next;
-	struct s_stack_node	*prev;
-}	t_stack_node;
+	struct	s_stack_node	*target_node;
+	struct	s_stack_node	*next;
+	struct	s_stack_node	*prev;
+}	t_stack;
 
 
 char	***evaluate_arguments(int argc, char **argv);
