@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_stack_a.c                                     :+:      :+:    :+:   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 19:49:08 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/08/04 21:15:24 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/08/04 21:36:33 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*create_node(int	n)
+t_stack	*create_node(int n)
 {
 	t_stack	*new_node;
 	
@@ -53,4 +53,21 @@ void	stack_addfront(t_stack **stack, t_stack	*new_node)
 		return ;
 	new_node->next = *stack;
 	new_node->prev = NULL;
+	if (*stack)
+		(*stack)->prev = new_node;
+	*stack = new_node;
+}
+
+void	free_stack(t_stack **stack)
+{
+	t_stack	*temp;
+
+	if (!stack || !*stack)
+		return ;
+	while (*stack)
+	{
+		temp = (*stack)->next;
+		free(*stack);
+		(*stack) = temp;
+	}
 }
