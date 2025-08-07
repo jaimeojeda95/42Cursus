@@ -1,0 +1,89 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/08/05 21:01:13 by jaojeda-          #+#    #+#              #
+#    Updated: 2025/08/07 20:41:29 by jaojeda-         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+#Primero defino el nombre del programa
+#(NAME tambien lo puedo llamar TARGET)
+
+NAME = so_long
+
+INCLUDES = -I include -I libft -I MLX42/include
+
+SRC = src/main.c 
+
+#SRC_BONUS = ft_lstnew_bonus.c
+
+OBJ = $(SRC:.c=.o)
+#OBJ_BONUS = $(SRC_BONUS:.c=.o)
+
+CC = cc
+
+CFLAGS = -Wall -Wextra -Werror -g
+#CFLAGS += -fsanitize=address
+
+LIBFT = libft/libft.a
+MLX_LIB = MLX42/build/libmlx42.a
+MLX_FLAGS = -ldl -lglfw -pthread -lm
+
+# --------------------------------------------------------------
+# 👇 Regla principal
+# --------------------------------------------------------------
+
+#Regla para generar una biblioteca estática
+all: $(NAME)
+
+#Aqui creo que mi libreria (.a)
+$(NAME): $(OBJ)
+	@$(MAKE) -C libft > /dev/null
+	@$(MAKE) libmlx
+	@$(CC) $(CFLAGS) $(INCLUDES) $(OBJ) $(LIBFT) $(MLX_LIB) $(MLX_FLAGS) -o $(NAME)
+	@echo "✅ Proyecto compilado correctamente."
+
+#Lo que dice es: Para crear $(NAME), es decir, libft.a, necesito los
+
+# --------------------------------------------------------------
+# 🛠 Compilar cada archivo fuente
+# --------------------------------------------------------------
+#Esto es una regla génerica para compilar de .c a .o
+%.o: %.c
+	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@ > /dev/null
+	@echo "🔧 Compilado: $<"
+
+# --------------------------------------------------------------
+# 📦 Compilación de MLX42
+# --------------------------------------------------------------
+libmlx:
+	@cmake -B MLX42/build MLX42 > /dev/null
+	@make -C MLX42/build -j4 > /dev/null
+	@echo "📦 MLX42 compilada."
+
+# --------------------------------------------------------------
+# 🧹 Limpieza
+# --------------------------------------------------------------
+#Aquí borra los archivos .o,
+clean:
+	@rm -f $(OBJ)
+	@$(MAKE) -C libft clean > /dev/null
+	-@$(MAKE) -C MLX42/build clean > /dev/null 2>&1 || true
+	@echo "🧹 Archivos objeto y temporales eliminados."
+
+#Esta regla es para borrar los archivos .o y .a (libft)
+fclean: clean
+	@rm -f $(NAME)
+	@rm -f MLX42/build/libmlx42.a
+	@rm -rf MLX42/build
+	@$(MAKE) -C libft fclean > /dev/null
+	@echo "🧼 Todo limpio: binarios, libft y MLX42."
+
+#Esta regla es para limpiar todo y volver a compilar desde cero
+re: fclean all
+
+.PHONY: all clean fclean
