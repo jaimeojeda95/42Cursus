@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   validations.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/07 21:00:00 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/08/07 21:30:57 by jaojeda-         ###   ########.fr       */
+/*   Created: 2025/08/07 21:12:11 by jaojeda-          #+#    #+#             */
+/*   Updated: 2025/08/07 21:24:55 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "../include/so_long.h"
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <fcntl.h>
-# include "../libft/libft.h"
-# include "../MLX42/include/MLX42/MLX42.h"
-
-
-
-//------------------------- STRUCTS -------------------------
-
-
-#endif
+char	*read_map(int fd)
+{
+	
+}
