@@ -6,7 +6,7 @@
 #    By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/05 21:01:13 by jaojeda-          #+#    #+#              #
-#    Updated: 2025/08/07 21:25:36 by jaojeda-         ###   ########.fr        #
+#    Updated: 2025/08/08 21:19:55 by jaojeda-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ NAME = so_long
 
 INCLUDES = -I include -I libft -I MLX42/include
 
-SRC = src/main.c src/validations.c src/so_long.c
+SRC = src/so_long.c src/validations.c
 
 #SRC_BONUS = ft_lstnew_bonus.c
 

@@ -6,7 +6,7 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 22:15:22 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/07/16 19:49:04 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/08/08 21:24:21 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
-
-/* typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-}	t_list; */
+# include "ft_printf/ft_printf.h"
 
 int		ft_atoi(const char *nptr);
 int		ft_isalnum(int c);
