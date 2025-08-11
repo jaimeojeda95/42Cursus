@@ -6,23 +6,12 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 14:16:59 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/06/18 22:28:49 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/08/11 19:31:21 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-size_t	ft_strlen(const char	*str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
+#include "libft.h"
 
 char	*ft_strchr(const char *str, int c)
 {
@@ -46,7 +35,7 @@ char	*ft_strchr(const char *str, int c)
 	return (NULL);
 }
 
-char	*ft_strdup(const char *s)
+/* char	*ft_strdup(const char *s)
 {
 	char	*ptr;
 	size_t	n;
@@ -64,7 +53,7 @@ char	*ft_strdup(const char *s)
 	}
 	ptr[i] = '\0';
 	return (ptr);
-}
+} */
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

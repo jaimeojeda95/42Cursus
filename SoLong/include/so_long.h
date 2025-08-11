@@ -6,7 +6,7 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 21:00:00 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/08/08 21:24:46 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/08/11 19:56:32 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,15 @@
 
 //------------------------- STRUCTS -------------------------
 
+typedef struct s_game
+{
+	
+}	t_game;
+
 
 //------------------------- FUNTIONS -------------------------
-int	check_ber(char *filename);
-
+int		check_ber(char *filename);
+int		count_lines(char *filename);
+char	**create_map(char *filename, int i);
 
 #endif

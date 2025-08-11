@@ -6,7 +6,7 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 22:15:22 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/08/08 21:24:21 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/08/11 18:11:57 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include "ft_printf/ft_printf.h"
+# include "get_next_line/get_next_line.h"
 
 int		ft_atoi(const char *nptr);
 int		ft_isalnum(int c);
