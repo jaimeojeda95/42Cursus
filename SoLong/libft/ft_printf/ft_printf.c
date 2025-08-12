@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: PC <PC@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 15:49:31 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/05/17 12:36:13 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/08/12 21:29:18 by PC               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ int	ft_printf_conditions(char format, va_list args)
 	if (format == 'u')
 		count += ft_unsigned_write(va_arg(args, unsigned int));
 	if (format == 'x')
-		count += ft_hexa_min(va_arg(args, unsigned long));
+		count += ft_hexa_min(va_arg(args, unsigned int));
 	if (format == 'X')
-		count += ft_hexa_max(va_arg(args, unsigned long));
+		count += ft_hexa_max(va_arg(args, unsigned int));
 	if (format == '%')
-		count += write(1, "%", 1);
+		count += write(1, &format, 1);
 	return (count);
 }
 
