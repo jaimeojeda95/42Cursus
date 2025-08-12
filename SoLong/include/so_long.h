@@ -6,7 +6,7 @@
 /*   By: PC <PC@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 21:00:00 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/08/12 20:29:17 by PC               ###   ########.fr       */
+/*   Updated: 2025/08/12 22:34:19 by PC               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ typedef struct s_game
 
 //------------------------- FUNTIONS -------------------------
 int		check_ber(char *filename);
-int		count_lines(char *filename);
+int		count_rows(char *filename);
 char	**create_map(char *filename, int i);
+int		validation_map(char **map);
 
 #endif

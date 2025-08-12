@@ -6,7 +6,7 @@
 #    By: PC <PC@student.42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/05 21:01:13 by jaojeda-          #+#    #+#              #
-#    Updated: 2025/08/12 19:59:23 by PC               ###   ########.fr        #
+#    Updated: 2025/08/12 22:08:59 by PC               ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ NAME = so_long
 
 INCLUDES = -I include -I libft -I MLX42/include
 
-SRC = src/so_long.c src/validations.c
+SRC = src/so_long.c src/create_map.c src/validation_map.c
 
 #SRC_BONUS = ft_lstnew_bonus.c
 
