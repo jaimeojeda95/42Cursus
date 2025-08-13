@@ -6,7 +6,7 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 21:00:00 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/08/13 21:25:50 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/08/13 21:43:16 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ int		check_ber(char *filename);
 int		count_rows(char *filename);
 char	**create_map(char *filename, int i);
 int		validation_columns_chars(char **map);
+int		validation_walls(char **map);
 
 #endif

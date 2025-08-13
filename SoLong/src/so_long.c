@@ -6,7 +6,7 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 21:26:27 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/08/13 21:27:22 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/08/13 21:44:27 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int main(int argc, char **argv)
 		return (ft_printf("Error creando el mapa\n"), 1);
 	if (!validation_columns_chars(map))
 			return (printf("Mapa no válido\n"), 1);
+	if (!validation_walls(map))
+		return (printf("Error\n"), 1);
 	while (map[i])
 	{
 		ft_printf("map[%d]: %s\n", i, map[i]);

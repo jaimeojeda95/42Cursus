@@ -6,12 +6,30 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 21:53:12 by PC                #+#    #+#             */
-/*   Updated: 2025/08/13 21:34:01 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/08/13 21:48:19 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+// Valido que el mapa esté cerrado/rodeado por muros
+int	validation_walls(char **map)
+{
+	// int		i;
+	int		j;
+
+	// i = 0;
+	j = 0;
+	while (map[0][j])
+	{
+		if (map[0][j] != '1')
+			return (0);
+		j++;
+	}
+	return (1);
+}
+
+// Valido las columnas y caracteres
 int	validation_columns_chars(char **map)
 {
 	int		i;
