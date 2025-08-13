@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: PC <PC@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 21:00:00 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/08/12 22:34:19 by PC               ###   ########.fr       */
+/*   Updated: 2025/08/13 21:25:50 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,6 @@ typedef struct s_game
 int		check_ber(char *filename);
 int		count_rows(char *filename);
 char	**create_map(char *filename, int i);
-int		validation_map(char **map);
+int		validation_columns_chars(char **map);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: PC <PC@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 21:12:11 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/08/12 22:00:12 by PC               ###   ########.fr       */
+/*   Updated: 2025/08/13 21:28:06 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ int	count_rows(char *filename)
 
 	rows = 0;
 	if (!filename)
-	return (ft_printf("Error: Archivo nulo\n"), -1);
+		return (ft_printf("Error: Archivo nulo\n"), -1);
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
-	return (perror("Error al leer el archivo"), -1);
+		return (perror("Error al leer el archivo"), -1);
 	line = get_next_line(fd);
 	while (line)
 	{

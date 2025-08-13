@@ -10,3 +10,4 @@ Paso a paso de la creación del proyecto
 5) Crear función para que cuente las lineas del mapa;
 6) Crear función que genere un array del mapa;
 7) Validar mapa;
+	7.1) Evaluar que las columnas sean iguales;
