@@ -3,41 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   create_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: PC <PC@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 21:12:11 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/08/13 21:38:44 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/08/15 18:47:41 by PC               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-char	**create_map(char *filename, int i)
+int	create_map(t_game *game, char *filename)
 {
 	int		fd;
-	int		lines;
 	char	*line;
-	char	**map;
+	int		i;
 
-	lines = count_rows(filename);
+	i = 0;
+	game->rows = count_rows(filename);
 	fd = open (filename, O_RDONLY);
 	if (fd == -1)
-		return (perror("Error al abrir archivo"), NULL);
-	map = malloc(sizeof(char *) * (lines + 1));
-	if (!map)
-		return (close(fd), NULL);
+		return (perror("Error al abrir archivo"), 0);
+	game->map = malloc(sizeof(char *) * (game->rows + 1));
+	if (!game->map)
+		return (close(fd), 0);
 	line = get_next_line(fd);
 	while (line)
 	{
 		if (line && ft_strlen(line) > 0 && line[ft_strlen(line) - 1] == '\n')
 			line[ft_strlen(line) - 1] = '\0';
-		map[i++] = ft_strdup(line);
+		game->map[i++] = ft_strdup(line);
 		free(line);
 		line = get_next_line(fd);
 	}
-	map[i] = NULL;
+	game->map[i] = NULL;
 	close (fd);
-	return (map);
+	return (1);
 }
 
 // rows = filas ≈ lineas
@@ -49,10 +49,10 @@ int	count_rows(char *filename)
 
 	rows = 0;
 	if (!filename)
-		return (ft_printf("Error: Archivo nulo\n"), -1);
+		return (ft_printf("Error: Archivo nulo\n"), 0);
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
-		return (perror("Error al leer el archivo"), -1);
+		return (perror("Error al leer el archivo"), 0);
 	line = get_next_line(fd);
 	while (line)
 	{
@@ -62,7 +62,7 @@ int	count_rows(char *filename)
 	}
 	close (fd);
 	if (rows <= 0)
-		return (ft_printf ("Error: archivo vacío\n"), -1);
+		return (ft_printf ("Error: archivo vacío\n"), 0);
 	return (rows);
 }
 
