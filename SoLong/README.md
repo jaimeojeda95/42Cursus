@@ -9,7 +9,9 @@ Paso a paso de la creación del proyecto
 4) Crear mi .h;
 	4.1) Crear estructura;
 5) Crear función para evaluar que el archivo que se envía como argumento es ".ber";
-6) Crear función para que cuente las lineas del mapa;
+6) Crear función para que cuente las filas del mapa;
 8) Crear función que genere un array del mapa;
 8) Validar mapa;
-	8.1) Evaluar que las columnas sean iguales;
+	8.1) Evaluar que las columnas (caracteres) sean iguales;
+	8.2) Evaluar que esté rodeado de muros (1);
+	8.3) Comprobar que hay un camino válido en el mapa;

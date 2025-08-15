@@ -6,11 +6,40 @@
 /*   By: PC <PC@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 21:53:12 by PC                #+#    #+#             */
-/*   Updated: 2025/08/15 19:43:37 by PC               ###   ########.fr       */
+/*   Updated: 2025/08/15 22:09:45 by PC               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+// Compruebo que no hayan personajes (P) o salidas (E) duplicadas
+int	validation_duplicates(t_game *game)
+{
+	int		i;
+	int		j;
+	int		countP;
+	int		countE;
+
+	i = 0;
+	countP = 0;
+	countE = 0;
+	while (game->map[i])
+	{
+		j = 0;
+		while (game->map[i][j])
+		{
+			if (game->map[i][j] == 'P')
+				countP++;
+			if (game->map[i][j] == 'E')
+				countE++;
+			j++;
+		}
+		i++;
+	}
+	if (countP != 1 || countE != 1)
+		return (ft_printf("Error: Caracteres duplicados\n"), 0);
+	return (1);
+}
 
 // Valido que el mapa esté cerrado/rodeado por muros
 int	validation_walls(t_game *game)

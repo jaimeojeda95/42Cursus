@@ -6,7 +6,7 @@
 /*   By: PC <PC@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 21:00:00 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/08/15 19:06:07 by PC               ###   ########.fr       */
+/*   Updated: 2025/08/15 21:47:05 by PC               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ int		count_rows(char *filename);
 int		create_map(t_game *game, char *filename);
 int		validation_columns_chars(t_game *game);
 int		validation_walls(t_game *game);
+int		validation_duplicates(t_game *game);
 
 #endif
