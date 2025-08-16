@@ -6,7 +6,7 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 21:53:12 by PC                #+#    #+#             */
-/*   Updated: 2025/08/16 21:08:47 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/08/16 21:25:30 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ int	ft_validation_columns_chars(t_game *game)
 	return (1);
 }
 
+// Valido todo el mapa
 int ft_validate_map(t_game *game)
 {
 	if (!ft_validation_columns_chars(game))

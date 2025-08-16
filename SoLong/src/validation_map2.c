@@ -6,7 +6,7 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 19:49:09 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/08/16 21:18:47 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/08/16 21:25:47 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int	ft_map_playable(char **map_copy)
 	return (1);
 }
 
-// Valido todo el mapa en una sola función
+// Valido la jugabilidad del mapa en una sola función
 int	ft_validate_map_playable(t_game *game)
 {
 	char	**map_copy;
