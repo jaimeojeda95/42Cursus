@@ -14,4 +14,5 @@ Paso a paso de la creación del proyecto
 8) Validar mapa;
 	8.1) Evaluar que las columnas (caracteres) sean iguales;
 	8.2) Evaluar que esté rodeado de muros (1);
-	8.3) Comprobar que hay un camino válido en el mapa;
+	8.3) Duplicar el mapa para poder hacer flood fill;
+	8.4) Comprobar que hay un camino válido en el mapa (flood fill);

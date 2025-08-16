@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validation_map.c                                   :+:      :+:    :+:   */
+/*   validation_map1.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: PC <PC@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 21:53:12 by PC                #+#    #+#             */
-/*   Updated: 2025/08/15 22:09:45 by PC               ###   ########.fr       */
+/*   Updated: 2025/08/16 21:08:47 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 // Compruebo que no hayan personajes (P) o salidas (E) duplicadas
-int	validation_duplicates(t_game *game)
+int	ft_validation_duplicates(t_game *game)
 {
 	int		i;
 	int		j;
@@ -42,7 +42,7 @@ int	validation_duplicates(t_game *game)
 }
 
 // Valido que el mapa esté cerrado/rodeado por muros
-int	validation_walls(t_game *game)
+int	ft_validation_walls(t_game *game)
 {
 	int		i;
 	int		j;
@@ -68,7 +68,7 @@ int	validation_walls(t_game *game)
 }
 
 // Valido las columnas y caracteres
-int	validation_columns_chars(t_game *game)
+int	ft_validation_columns_chars(t_game *game)
 {
 	int		i;
 	int		j;
@@ -79,7 +79,7 @@ int	validation_columns_chars(t_game *game)
 	i = 0;
 	while (game->map[i])
 	{
-		if (ft_strlen(game->map[i]) != game->columns)
+		if ((int)ft_strlen(game->map[i]) != game->columns)
 			return (0);
 		j = 0;
 		while (game->map[i][j])
@@ -93,4 +93,17 @@ int	validation_columns_chars(t_game *game)
 		i++;
 	}
 	return (1);
+}
+
+int ft_validate_map(t_game *game)
+{
+	if (!ft_validation_columns_chars(game))
+		return (printf("Mapa no válido\n"), 0);
+	if (!ft_validation_walls(game))
+		return (printf("Error\n"), 0);
+	if (!ft_validation_duplicates(game))
+		return (0);
+	if (!ft_validate_map_playable(game))
+		return (0);
+	return (1);	
 }

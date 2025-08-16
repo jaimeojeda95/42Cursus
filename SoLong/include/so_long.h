@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: PC <PC@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 21:00:00 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/08/15 21:47:05 by PC               ###   ########.fr       */
+/*   Updated: 2025/08/16 21:05:44 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,23 @@ typedef struct s_game
 {
 	char	**map;
 	int		rows;
-	size_t	columns;
+	int		columns;
+	int		start_x;
+	int		start_y;
 }	t_game;
 
 //------------------------- FUNTIONS -------------------------
 int		check_ber(char *filename);
 int		count_rows(char *filename);
 int		create_map(t_game *game, char *filename);
-int		validation_columns_chars(t_game *game);
-int		validation_walls(t_game *game);
-int		validation_duplicates(t_game *game);
+int		ft_validation_columns_chars(t_game *game);
+int		ft_validation_walls(t_game *game);
+int		ft_validation_duplicates(t_game *game);
+char	**ft_copy_map(t_game *game);
+void	ft_find_player(t_game *game);
+void	ft_flood_fill(char** map_copy, t_game *game, int x, int y);
+int		ft_map_playable(char **map_copy);
+int		ft_validate_map_playable(t_game *game);
+int		ft_validate_map(t_game *game);
 
 #endif
