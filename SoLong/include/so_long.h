@@ -6,7 +6,7 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 21:00:00 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/08/20 22:47:56 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/08/21 20:53:29 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_textures
 	mlx_image_t		*wall;
 	mlx_image_t		*exit;
 	mlx_image_t		*collectable;
+	mlx_image_t		*player;
 } t_textures;
 
 
@@ -62,6 +63,6 @@ int			ft_validate_map(t_game *game);
 void		init_window(t_game *game);
 mlx_image_t *ft_load_png(t_game *game, char *file);
 void		ft_load_all_png(t_game	*game);
-void		ft_draw_textures(t_game *game);
+void		ft_draw_map(t_game *game);
 
 #endif

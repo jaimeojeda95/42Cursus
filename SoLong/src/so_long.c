@@ -6,7 +6,7 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 21:26:27 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/08/20 22:50:35 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/08/21 20:53:07 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	main(int argc, char **argv)
 	if (!ft_validate_map(&game))
 		return (1);
 	init_window(&game);
+	ft_load_all_png(&game);
 	mlx_loop(game.mlx);
 	
 	while (game.map[i])
