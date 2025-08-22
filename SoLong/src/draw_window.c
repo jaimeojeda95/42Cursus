@@ -6,7 +6,7 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 20:18:26 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/08/22 20:51:56 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/08/22 21:19:02 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,16 @@ mlx_image_t	*ft_load_png(t_game *game, char *file)
 
 	texture = mlx_load_png(file);
 	if (!texture)
-		return (ft_printf("Error creando %s\n", file), NULL);
+	{
+		ft_printf("Error creando %s\n", file);
+		ft_clean_exit(game, 1);
+	}
 	image = mlx_texture_to_image(game->mlx, texture);
 	if (!image)
-		return (ft_printf("Error creando %s\n", file), NULL);
+	{
+		ft_printf("Error creando %s\n", file);
+		ft_clean_exit(game, 1);
+	}
 	free (texture);
 	return (image);
 }

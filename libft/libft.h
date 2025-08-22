@@ -6,7 +6,7 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 22:15:22 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/07/16 19:49:04 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/08/22 20:02:51 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
+void	ft_free_split(char **split);
 void	ft_bzero(void	*str, size_t	n);
 void	*ft_calloc(size_t nmemb, size_t size);
 void	*ft_memchr(const void *str, int c, size_t n);
