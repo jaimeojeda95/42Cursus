@@ -6,7 +6,7 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 21:53:12 by PC                #+#    #+#             */
-/*   Updated: 2025/08/22 21:51:15 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/08/22 22:14:56 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,12 @@
 // Compruebo las dimensiones del mapa vs el monitor
 int	check_map_size(t_game *game)
 {
-	int		screen_w;
-	int		screen_h;
+	int		map_width;
+	int		map_height;
 
-	mlx_get_monitor_size(0, &screen_w, &screen_h);
-	if (game->columns * TILE > screen_w
-		|| game->rows * TILE > screen_h)
-	{
-		ft_printf("Error: El mapa es más grande que el monitor\n");
-		ft_clean_exit(game, 0);
-	}
+	mlx_get_monitor_size(0, &map_width, &map_height);
+	if (game->columns * TILE > map_width || game->rows * TILE > map_height)
+		return (ft_printf("Error: El mapa más grande que monitor\n"), 0);
 	return (1);
 }
 
@@ -114,12 +110,13 @@ int	ft_validation_columns_chars(t_game *game)
 // Valido todo el mapa
 int	ft_validate_map(t_game *game)
 {
-	check_map_size(game);
 	if (!ft_validation_columns_chars(game))
 		return (printf("Mapa no válido\n"), 0);
 	if (!ft_validation_walls(game))
 		return (printf("Error\n"), 0);
 	if (!ft_validation_duplicates(game))
+		return (0);
+	if (!check_map_size(game))
 		return (0);
 	if (!ft_validate_map_playable(game))
 		return (0);
