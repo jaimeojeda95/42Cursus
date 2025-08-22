@@ -6,7 +6,7 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 21:00:00 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/08/22 20:55:18 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/08/22 21:50:43 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,9 @@ typedef struct s_game
 	int			player_y;
 	int			total_collectable;
 	int			width;
+	int			width_monitor;
 	int			height;
+	int			height_monitor;
 	int			point;
 	int			moves;
 	mlx_t		*mlx;
@@ -59,6 +61,7 @@ int			create_map(t_game *game, char *filename);
 int			ft_validation_columns_chars(t_game *game);
 int			ft_validation_walls(t_game *game);
 int			ft_validation_duplicates(t_game *game);
+int			check_map_size(t_game *game);
 char		**ft_copy_map(t_game *game);
 void		ft_find_player(t_game *game);
 void		ft_flood_fill(char** map_copy, t_game *game, int x, int y);

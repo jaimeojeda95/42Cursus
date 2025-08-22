@@ -6,11 +6,27 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 21:53:12 by PC                #+#    #+#             */
-/*   Updated: 2025/08/22 17:54:16 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/08/22 21:51:15 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+// Compruebo las dimensiones del mapa vs el monitor
+int	check_map_size(t_game *game)
+{
+	int		screen_w;
+	int		screen_h;
+
+	mlx_get_monitor_size(0, &screen_w, &screen_h);
+	if (game->columns * TILE > screen_w
+		|| game->rows * TILE > screen_h)
+	{
+		ft_printf("Error: El mapa es más grande que el monitor\n");
+		ft_clean_exit(game, 0);
+	}
+	return (1);
+}
 
 // Compruebo que no hayan personajes (P) o salidas (E) duplicadas
 int	ft_validation_duplicates(t_game *game)
@@ -98,6 +114,7 @@ int	ft_validation_columns_chars(t_game *game)
 // Valido todo el mapa
 int	ft_validate_map(t_game *game)
 {
+	check_map_size(game);
 	if (!ft_validation_columns_chars(game))
 		return (printf("Mapa no válido\n"), 0);
 	if (!ft_validation_walls(game))
