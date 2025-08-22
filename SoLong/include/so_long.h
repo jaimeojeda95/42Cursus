@@ -6,7 +6,7 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 21:00:00 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/08/21 20:53:29 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/08/22 20:55:18 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_textures
 	mlx_image_t		*exit;
 	mlx_image_t		*collectable;
 	mlx_image_t		*player;
+	mlx_image_t		*collect;
 } t_textures;
 
 
@@ -39,12 +40,16 @@ typedef struct s_game
 	char		**map;
 	int			rows;
 	int			columns;
-	int			start_x;
-	int			start_y;
+	int			player_x;
+	int			player_y;
+	int			total_collectable;
 	int			width;
 	int			height;
+	int			point;
+	int			moves;
 	mlx_t		*mlx;
 	t_textures	tx;
+	mlx_image_t	*player_image;
 }	t_game;
 
 //------------------------- FUNTIONS -------------------------
@@ -63,6 +68,12 @@ int			ft_validate_map(t_game *game);
 void		init_window(t_game *game);
 mlx_image_t *ft_load_png(t_game *game, char *file);
 void		ft_load_all_png(t_game	*game);
-void		ft_draw_map(t_game *game);
+void		ft_draw_map(t_game *game, int x, int y);
+void		ft_draw_player(t_game *game);
+void		ft_move_player(t_game *game, int new_y, int new_x);
+void		ft_key_hooks(mlx_key_data_t keydata, void *param);
+void		ft_close_window(void *param);
+void		ft_clean_exit(t_game *game, int code);
+void		ft_disable_collect_at(t_game *game, int x, int y);
 
 #endif

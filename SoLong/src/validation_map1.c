@@ -6,7 +6,7 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 21:53:12 by PC                #+#    #+#             */
-/*   Updated: 2025/08/16 21:25:30 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/08/22 17:54:16 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,26 @@ int	ft_validation_duplicates(t_game *game)
 {
 	int		i;
 	int		j;
-	int		countP;
-	int		countE;
+	int		count_p;
+	int		count_e;
 
 	i = 0;
-	countP = 0;
-	countE = 0;
+	count_p = 0;
+	count_e = 0;
 	while (game->map[i])
 	{
 		j = 0;
 		while (game->map[i][j])
 		{
 			if (game->map[i][j] == 'P')
-				countP++;
+				count_p++;
 			if (game->map[i][j] == 'E')
-				countE++;
+				count_e++;
 			j++;
 		}
 		i++;
 	}
-	if (countP != 1 || countE != 1)
+	if (count_p != 1 || count_e != 1)
 		return (ft_printf("Error: Caracteres duplicados\n"), 0);
 	return (1);
 }
@@ -96,7 +96,7 @@ int	ft_validation_columns_chars(t_game *game)
 }
 
 // Valido todo el mapa
-int ft_validate_map(t_game *game)
+int	ft_validate_map(t_game *game)
 {
 	if (!ft_validation_columns_chars(game))
 		return (printf("Mapa no válido\n"), 0);
@@ -106,5 +106,5 @@ int ft_validate_map(t_game *game)
 		return (0);
 	if (!ft_validate_map_playable(game))
 		return (0);
-	return (1);	
+	return (1);
 }

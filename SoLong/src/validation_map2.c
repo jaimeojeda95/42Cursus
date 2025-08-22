@@ -6,18 +6,18 @@
 /*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 19:49:09 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/08/16 21:25:47 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/08/22 19:11:53 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 // Copio el mapa para poder hacer flood fill
-char **ft_copy_map(t_game *game)
+char	**ft_copy_map(t_game *game)
 {
 	int		i;
 	char	**map_copy;
-	
+
 	map_copy = malloc(sizeof(char *) * game->rows + 1);
 	i = 0;
 	while (i < game->rows)
@@ -25,12 +25,12 @@ char **ft_copy_map(t_game *game)
 		map_copy[i] = ft_strdup(game->map[i]);
 		i++;
 	}
-	map_copy[i] =  NULL;
+	map_copy[i] = NULL;
 	return (map_copy);
 }
 
 // Encuentro la posición del jugador
-void ft_find_player(t_game *game)
+void	ft_find_player(t_game *game)
 {
 	int		x;
 	int		y;
@@ -43,20 +43,20 @@ void ft_find_player(t_game *game)
 		{
 			if (game->map[y][x] == 'P')
 			{
-				game->start_y = y;
-				game->start_x = x;
+				game->player_y = y;
+				game->player_x = x;
 				return ;
 			}
 			x++;
-		}	
+		}
 		y++;
 	}
 }
 
-// Verifico las salidaas y coleccionables sean accesibles
-void ft_flood_fill(char** map_copy, t_game *game, int x, int y)
+// Verifico las salidas y coleccionables sean accesibles
+void	ft_flood_fill(char **map_copy, t_game *game, int x, int y)
 {
-	if ((x < 0 || y < 0) || (x >= game->columns ||  y >= game->rows))
+	if ((x < 0 || y < 0) || (x >= game->columns || y >= game->rows))
 		return ;
 	else if (map_copy[y][x] == '1' || map_copy[y][x] == 'V')
 		return ;
@@ -80,7 +80,8 @@ int	ft_map_playable(char **map_copy)
 		while (map_copy[y][x])
 		{
 			if (map_copy[y][x] == 'C' || map_copy[y][x] == 'E')
-				return (ft_printf("Error: Hay salidas u objetos sin alcanzar\n"), 0);
+				return (ft_printf("Error: Hay salidas u"
+						"objetos sin alcanzar\n"), 0);
 			x++;
 		}
 		y++;
@@ -97,8 +98,8 @@ int	ft_validate_map_playable(t_game *game)
 	if (!map_copy)
 		return (0);
 	ft_find_player(game);
-	ft_flood_fill(map_copy, game, game->start_x, game->start_y);	
-	if(!ft_map_playable(map_copy))
+	ft_flood_fill(map_copy, game, game->player_x, game->player_y);
+	if (!ft_map_playable(map_copy))
 	{
 		ft_printf("El mapa no es jugable\n");
 		return (0);
