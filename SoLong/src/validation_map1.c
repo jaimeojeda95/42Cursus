@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validation_map1.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: PC <PC@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 21:53:12 by PC                #+#    #+#             */
-/*   Updated: 2025/08/22 22:14:56 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/08/23 19:53:23 by PC               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 // Compruebo las dimensiones del mapa vs el monitor
 int	check_map_size(t_game *game)
 {
-	int		map_width;
-	int		map_height;
-
-	mlx_get_monitor_size(0, &map_width, &map_height);
-	if (game->columns * TILE > map_width || game->rows * TILE > map_height)
-		return (ft_printf("Error: El mapa más grande que monitor\n"), 0);
+	mlx_get_monitor_size(0, &game->width, &game->height);
+	if (game->columns * TILE > game->width || game->rows * TILE > game->height)
+	{
+		ft_printf("Error: El mapa es más grande que el monitor\n");
+		return (0);
+	}
 	return (1);
 }
 
@@ -96,9 +96,9 @@ int	ft_validation_columns_chars(t_game *game)
 		j = 0;
 		while (game->map[i][j])
 		{
-			if (!(game->map[i][j] == '0' || game->map[i][j] == '1' ||
-				game->map[i][j] == 'C' || game->map[i][j] == 'E' ||
-				game->map[i][j] == 'P'))
+			if (!(game->map[i][j] == '0' || game->map[i][j] == '1'
+				|| game->map[i][j] == 'C' || game->map[i][j] == 'E'
+				|| game->map[i][j] == 'P'))
 				return (0);
 			j++;
 		}
@@ -115,8 +115,6 @@ int	ft_validate_map(t_game *game)
 	if (!ft_validation_walls(game))
 		return (printf("Error\n"), 0);
 	if (!ft_validation_duplicates(game))
-		return (0);
-	if (!check_map_size(game))
 		return (0);
 	if (!ft_validate_map_playable(game))
 		return (0);

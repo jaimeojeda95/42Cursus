@@ -6,12 +6,13 @@
 /*   By: PC <PC@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 21:12:11 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/08/15 18:47:41 by PC               ###   ########.fr       */
+/*   Updated: 2025/08/23 19:36:08 by PC               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
+// Creo el mapa (array)
 int	create_map(t_game *game, char *filename)
 {
 	int		fd;
@@ -66,6 +67,7 @@ int	count_rows(char *filename)
 	return (rows);
 }
 
+// Verifico que tenga la extensión correcta
 int	check_ber(char *filename)
 {
 	int	len;

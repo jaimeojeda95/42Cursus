@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_window.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: PC <PC@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 20:18:26 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/08/22 21:19:02 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/08/23 19:51:06 by PC               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_draw_player(t_game *game)
 {
 	int		y;
 	int		x;
-	
+
 	y = 0;
 	while (y < game->rows)
 	{
@@ -57,7 +57,7 @@ void	ft_draw_map(t_game *game, int x, int y)
 				mlx_image_to_window(game->mlx, game->tx.collectable,
 					(x * TILE), (y * TILE));
 				game->total_collectable++;
-			}		
+			}
 			else if (game->map[y][x] == 'E')
 				mlx_image_to_window(game->mlx, game->tx.exit,
 					(x * TILE), (y * TILE));

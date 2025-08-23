@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validation_map2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: PC <PC@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 19:49:09 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/08/22 19:11:53 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/08/23 19:38:24 by PC               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ char	**ft_copy_map(t_game *game)
 	int		i;
 	char	**map_copy;
 
-	map_copy = malloc(sizeof(char *) * game->rows + 1);
+	map_copy = malloc(sizeof(char *) * (game->rows + 1));
+	if (!map_copy)
+		return (0);
 	i = 0;
 	while (i < game->rows)
 	{
@@ -80,7 +82,7 @@ int	ft_map_playable(char **map_copy)
 		while (map_copy[y][x])
 		{
 			if (map_copy[y][x] == 'C' || map_copy[y][x] == 'E')
-				return (ft_printf("Error: Hay salidas u"
+				return (ft_printf("Error: Hay salidas u "
 						"objetos sin alcanzar\n"), 0);
 			x++;
 		}

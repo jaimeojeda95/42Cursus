@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+         #
+#    By: PC <PC@student.42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/05 21:01:13 by jaojeda-          #+#    #+#              #
-#    Updated: 2025/08/22 20:44:12 by jaojeda-         ###   ########.fr        #
+#    Updated: 2025/08/23 19:49:16 by PC               ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ NAME = so_long
 INCLUDES = -I include -I libft -I MLX42/include
 
 SRC = src/so_long.c src/create_map.c src/validation_map1.c \
-src/validation_map2.c src/draw_window.c src/hooks.c src/free_all.c \
+src/validation_map2.c src/draw_window.c src/hooks.c \
+src/free_all.c \
 
 #SRC_BONUS = ft_lstnew_bonus.c
 
@@ -27,13 +28,13 @@ OBJ = $(SRC:.c=.o)
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 #CFLAGS += -fsanitize=address
 
 LIBFT = libft/libft.a
 MLX_LIB = MLX42/build/libmlx42.a
-#MLX_FLAGS = -L/opt/homebrew/lib -lglfw -pthread -lm -framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo -ldl
-MLX_FLAGS = -ldl -lglfw -pthread -lm
+MLX_FLAGS = -L/opt/homebrew/lib -lglfw -pthread -lm -framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo -ldl
+#MLX_FLAGS = -ldl -lglfw -pthread -lm
 
 # --------------------------------------------------------------
 # 👇 Regla principal

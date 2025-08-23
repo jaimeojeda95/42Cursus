@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: PC <PC@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 21:03:30 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/08/22 20:59:18 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/08/23 19:54:54 by PC               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ void	ft_close_window(void *param)
 void	ft_key_hooks(mlx_key_data_t keydata, void *param)
 {
 	t_game	*game;
-	
+
 	game = (t_game *)param;
 	if (keydata.action != MLX_PRESS)
-    	return;
+		return ;
 	if (keydata.key == MLX_KEY_ESCAPE)
 		ft_clean_exit(game, 0);
 	if (keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_UP)
@@ -61,7 +61,7 @@ void	ft_move_player(t_game *game, int new_y, int new_x)
 	if (game->map[new_y][new_x] == 'E'
 		&& game->point == game->total_collectable)
 	{
-		ft_printf ("WINNER!");
+		ft_printf("WINNER!");
 		ft_clean_exit(game, 0);
 	}
 }

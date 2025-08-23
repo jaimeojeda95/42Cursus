@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: PC <PC@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 21:00:00 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/08/22 21:50:43 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/08/23 19:47:42 by PC               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,7 @@ typedef struct s_textures
 	mlx_image_t		*collectable;
 	mlx_image_t		*player;
 	mlx_image_t		*collect;
-} t_textures;
-
+}	t_textures;
 
 typedef struct s_game
 {
@@ -44,9 +43,7 @@ typedef struct s_game
 	int			player_y;
 	int			total_collectable;
 	int			width;
-	int			width_monitor;
 	int			height;
-	int			height_monitor;
 	int			point;
 	int			moves;
 	mlx_t		*mlx;
@@ -64,12 +61,12 @@ int			ft_validation_duplicates(t_game *game);
 int			check_map_size(t_game *game);
 char		**ft_copy_map(t_game *game);
 void		ft_find_player(t_game *game);
-void		ft_flood_fill(char** map_copy, t_game *game, int x, int y);
+void		ft_flood_fill(char **map_copy, t_game *game, int x, int y);
 int			ft_map_playable(char **map_copy);
 int			ft_validate_map_playable(t_game *game);
 int			ft_validate_map(t_game *game);
 void		init_window(t_game *game);
-mlx_image_t *ft_load_png(t_game *game, char *file);
+mlx_image_t	*ft_load_png(t_game *game, char *file);
 void		ft_load_all_png(t_game	*game);
 void		ft_draw_map(t_game *game, int x, int y);
 void		ft_draw_player(t_game *game);
