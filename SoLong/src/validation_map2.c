@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validation_map2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: PC <PC@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 19:49:09 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/08/23 19:38:24 by PC               ###   ########.fr       */
+/*   Updated: 2025/08/25 18:06:58 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,12 +82,17 @@ int	ft_map_playable(char **map_copy)
 		while (map_copy[y][x])
 		{
 			if (map_copy[y][x] == 'C' || map_copy[y][x] == 'E')
-				return (ft_printf("Error: Hay salidas u "
-						"objetos sin alcanzar\n"), 0);
+			{
+				ft_printf("Error: Hay salidas u "
+						"objetos sin alcanzar\n");
+				ft_free_split(map_copy);
+				return (0);
+			}
 			x++;
 		}
 		y++;
 	}
+	ft_free_split(map_copy);
 	return (1);
 }
 
