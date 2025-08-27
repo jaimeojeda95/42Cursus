@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_all.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: PC <PC@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 20:04:00 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/08/25 18:04:33 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/08/27 23:50:49 by PC               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,25 @@ void	ft_disable_collect_at(t_game *game, int x, int y)
 		}
 		i++;
 	}
+}
+
+int	ft_check_collectable(t_game *game)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	game->count_c = 0;
+	while (game->map[i])
+	{
+		j = 0;
+		while (game->map[i][j])
+		{
+			if (game->map[i][j] == 'C')
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }

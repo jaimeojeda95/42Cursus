@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: PC <PC@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 21:00:00 by jaojeda-          #+#    #+#             */
-/*   Updated: 2025/08/25 18:06:27 by jaojeda-         ###   ########.fr       */
+/*   Updated: 2025/08/27 23:50:55 by PC               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct s_game
 	int			height;
 	int			point;
 	int			moves;
+	int			count_c;
 	mlx_t		*mlx;
 	t_textures	tx;
 	mlx_image_t	*player_image;
@@ -75,5 +76,6 @@ void		ft_key_hooks(mlx_key_data_t keydata, void *param);
 void		ft_close_window(void *param);
 void		ft_clean_exit(t_game *game, int code);
 void		ft_disable_collect_at(t_game *game, int x, int y);
+int			ft_check_collectable(t_game *game);
 
 #endif

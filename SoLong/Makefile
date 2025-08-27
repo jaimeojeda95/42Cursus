@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jaojeda- <jaojeda-@student.42.fr>          +#+  +:+       +#+         #
+#    By: PC <PC@student.42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/05 21:01:13 by jaojeda-          #+#    #+#              #
-#    Updated: 2025/08/25 18:12:35 by jaojeda-         ###   ########.fr        #
+#    Updated: 2025/08/27 23:54:15 by PC               ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,8 +30,8 @@ CFLAGS = -Wall -Wextra -Werror -g
 
 LIBFT = libft/libft.a
 MLX_LIB = MLX42/build/libmlx42.a
-#MLX_FLAGS = -L/opt/homebrew/lib -lglfw -pthread -lm -framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo -ldl
-MLX_FLAGS = -ldl -lglfw -pthread -lm
+MLX_FLAGS = -L/opt/homebrew/lib -lglfw -pthread -lm -framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo -ldl
+#MLX_FLAGS = -ldl -lglfw -pthread -lm
 
 # --------------------------------------------------------------
 # 👇 Regla principal

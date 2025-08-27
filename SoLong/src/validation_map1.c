@@ -6,7 +6,7 @@
 /*   By: PC <PC@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 21:53:12 by PC                #+#    #+#             */
-/*   Updated: 2025/08/23 19:53:23 by PC               ###   ########.fr       */
+/*   Updated: 2025/08/27 23:51:13 by PC               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,9 +111,11 @@ int	ft_validation_columns_chars(t_game *game)
 int	ft_validate_map(t_game *game)
 {
 	if (!ft_validation_columns_chars(game))
-		return (printf("Mapa no válido\n"), 0);
+		return (ft_printf("Mapa no válido\n"), 0);
+	if (!ft_check_collectable(game))
+		return (ft_printf("Error: no hay coleccionables"), 0);
 	if (!ft_validation_walls(game))
-		return (printf("Error\n"), 0);
+		return (ft_printf("Error\n"), 0);
 	if (!ft_validation_duplicates(game))
 		return (0);
 	if (!ft_validate_map_playable(game))
