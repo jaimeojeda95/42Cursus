@@ -25,25 +25,28 @@ Paso a paso de la creación del proyecto
 	8.2) Evaluar que esté rodeado de muros (1);
 		int	ft_validation_walls(t_game *game)
 
-	8.3) Evaluar que no hay más de un personaje y una salida;
+	8.3) Evaluar que hay al menos un collecionable;
+		int	ft_check_collectable(t_game *game)
+
+	8.4) Evaluar que no hay más de un personaje y una salida;
 		int	ft_validation_duplicates(t_game *game)
 
-	8.4) Función que me valida 8.1, 8.2, 8.3 y 8.8 en una sola función
+	8.5) Función que me valida 8.1, 8.2, 8.3, 8.4 y 8.10 en una sola función
 		int	ft_validate_map(t_game *game)
 
-	8.5) Duplicar el mapa para poder hacer flood fill;
+	8.6) Duplicar el mapa para poder hacer flood fill;
 		char	**ft_copy_map(t_game *game)
 
-	8.6) Encontrar la posición del jugador;
+	8.7) Encontrar la posición del jugador;
 		void	ft_find_player(t_game *game)
 
-	8.6) Comprobar que hay un camino válido en el mapa (flood fill);
+	8.8) Comprobar que hay un camino válido en el mapa (flood fill);
 		void	ft_flood_fill(char **map_copy, t_game *game, int x, int y)
 
-	8.7) Verificar que el mapa es jugable (que el flood fill haya sido correcto);
+	8.9) Verificar que el mapa es jugable (que el flood fill haya sido correcto);
 		int	ft_map_playable(char **map_copy)
 
-	8.8) Función que me agrupe 8.5, 8.6 y 8.7 en una sola función.
+	8.10) Función que me agrupe 8.6, 8.7, 8.8 y 8.9 en una sola función.
 		int	ft_validate_map_playable(t_game *game)
 
 9) Inicializar la ventana (vacía);
