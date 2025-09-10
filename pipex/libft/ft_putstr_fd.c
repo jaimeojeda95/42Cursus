@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.h                                            :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: PC <PC@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: jaojeda- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/09 20:03:51 by PC                #+#    #+#             */
-/*   Updated: 2025/09/09 20:56:26 by PC               ###   ########.fr       */
+/*   Created: 2025/04/24 16:08:59 by jaojeda-          #+#    #+#             */
+/*   Updated: 2025/04/24 17:29:51 by jaojeda-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <fcntl.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <string.h>
-# include <errno.h>
-# include <sys/wait.h>
+//Me muestra uno a uno los caracteres de un string
+//fd si vale 1 me imprimirá en pantalla
 
-# define EXTREME_READ 0
-# define EXTREME_WRITE 1
-#endif
+void	ft_putstr_fd(char *s, int fd)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] != '\0')
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
+}
