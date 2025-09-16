@@ -6,7 +6,7 @@
 #    By: PC <PC@student.42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/10 19:39:11 by PC                #+#    #+#              #
-#    Updated: 2025/09/10 21:34:21 by PC               ###   ########.fr        #
+#    Updated: 2025/09/16 21:28:07 by PC               ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@$(MAKE) -C libft > /dev/null
 	@$(CC) $(CFLAGS) $(INCLUDES) $(OBJ) $(LIBFT) -o $(NAME)
-	$echo "✅ Proyecto compilado correctamente."
+	@echo "✅ Proyecto compilado correctamente."
 
 # --------------------------------------------------------------
 # 🛠 Compilar cada archivo fuente
@@ -58,7 +58,7 @@ clean:
 	@echo "🧹 Archivos objeto y temporales eliminados."
 
 #Borro los .o y el .a
-fclean:
+fclean: clean
 	@rm -f $(NAME)
 	@$(MAKE) -C libft fclean > /dev/null
 	@echo "🧼 Todo limpio: binarios y libft"
