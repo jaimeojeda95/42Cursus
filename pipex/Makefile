@@ -6,7 +6,7 @@
 #    By: PC <PC@student.42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/10 19:39:11 by PC                #+#    #+#              #
-#    Updated: 2025/09/16 21:28:07 by PC               ###   ########.fr        #
+#    Updated: 2025/09/18 21:22:27 by PC               ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ $(NAME): $(OBJ)
 
 %.o: %.c
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@ > /dev/null
-	@echo "🔧 Compilado: $<"
+#@echo "🔧 Compilado: $<"
 
 # --------------------------------------------------------------
 # 🧹 Limpieza
@@ -64,6 +64,11 @@ fclean: clean
 	@echo "🧼 Todo limpio: binarios y libft"
 
 #Para limpiar todo volver a compilar desde cero
+
+# Compila todo y luego borra los .o
+allclean: all clean
+	@echo "✅ Compilación completa y objetos eliminados."
+
 re: fclean all
 
-.PHONY: all clean fclean
+.PHONY: all clean fclean re allclean
